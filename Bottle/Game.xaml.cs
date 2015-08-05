@@ -11,6 +11,7 @@ using System.Windows.Threading;
 using System.Windows.Media.Animation;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using System.IO.IsolatedStorage;
 
 namespace Bottle
 {
@@ -19,10 +20,12 @@ namespace Bottle
         private double Degrees { get; set; }
         private Random random { get; set; }
         private int CountGamers { get; set; }
+        IsolatedStorageSettings AppSettings;
         public Game()
         {
             InitializeComponent();
             Degrees = 0;
+            AppSettings = IsolatedStorageSettings.ApplicationSettings;
             random = new Random();
         }
 
@@ -76,7 +79,7 @@ namespace Bottle
                     myLine.Name = aa;
                     RotateTransform MyTransform = new RotateTransform();
                     myLine.RenderTransform = MyTransform;
-                    myLine.RenderTransformOrigin = new Point(0.5, 0.5);                    
+                    myLine.RenderTransformOrigin = new Point(0.5, 0.5);
                     MyTransform.Angle = transformAngle;
                     LayoutRoot.Children.Add(myLine);
                     Canvas.SetZIndex(FindName(aa) as Line, 5 + i);
@@ -92,13 +95,13 @@ namespace Bottle
         private void q_Click(object sender, RoutedEventArgs e)
         {
             var zIndex = Canvas.GetZIndex(FindName("myLine2") as UIElement);
-            var zIndex2 = Canvas.GetZIndex(FindName("bottleImage") as UIElement);          
-            MessageBox.Show(zIndex.ToString() + "," + zIndex2.ToString());       
+            var zIndex2 = Canvas.GetZIndex(FindName("bottleImage") as UIElement);
+            MessageBox.Show(zIndex.ToString() + "," + zIndex2.ToString());
         }
 
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
-            DivideGrid(4);
+            DivideGrid(Convert.ToInt32(AppSettings["countGamers"]));
         }
     }
 

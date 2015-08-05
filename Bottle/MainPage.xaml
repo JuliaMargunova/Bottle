@@ -11,10 +11,10 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Landscape" Orientation="Landscape"
-    shell:SystemTray.IsVisible="True">
- 
+    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
+
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="CountGamer1" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -54,12 +54,26 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
                 <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="176"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="game" Grid.Column="1" Grid.Row="1" Width="Auto" Content="Играть" Click="game_Click_1"/>
-
+            <Grid Grid.Column="1" Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="ImgIncrease" Source="/Images/increase.png" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Tap="IncreaseGamers_Tap" />
+                <TextBlock x:Name="TBCountGamers"  Grid.Row="1" Grid.Column="1" Width="50" Height="50" Text="1" TextAlignment="Center"  />
+                <Image x:Name="ImgReduction" Source="/Images/reduction.png" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Tap="ReductionGamers_Tap" />
+            </Grid>
         </Grid>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
