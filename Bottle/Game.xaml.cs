@@ -63,7 +63,7 @@ namespace Bottle
             {
                 double heightLine = Math.Sqrt(Math.Pow(LayoutRoot.ActualWidth / 2, 2) + Math.Pow(LayoutRoot.RowDefinitions[1].ActualHeight / 2, 2));
                 double angle = 360 / countGamers;
-                double transformAngle = 0;
+                double transformAngle = 90;
                 for (int i = 0; i < countGamers; i++)
                 {
                     Line myLine = new Line();
@@ -84,7 +84,6 @@ namespace Bottle
                     LayoutRoot.Children.Add(myLine);
                     Canvas.SetZIndex(FindName(aa) as Line, 5 + i);
                 }
-
             }
             catch (Exception ex)
             {
