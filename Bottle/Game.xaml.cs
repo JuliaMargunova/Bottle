@@ -49,12 +49,15 @@ namespace Bottle
             bottleImage.RenderTransform = MyTransform;
             bottleImage.RenderTransformOrigin = new Point(0.5, 0.5);
             MyStory.Begin();
+            
         }
 
         private void bottleImage_Start(object sender, System.Windows.Input.GestureEventArgs e)
         {
             Degrees = random.Next(360, 720);
             rotate(Degrees);
+            var n = Math.Floor( Degrees / 360);
+            MessageBox.Show((Degrees - n * 360).ToString() +","+Degrees.ToString());
         }
 
         private void DivideGrid(int countGamers)
@@ -69,7 +72,7 @@ namespace Bottle
                     Line myLine = new Line();
                     transformAngle += angle;
                     string aa = "myLine" + i.ToString();
-                    myLine.Stroke = new SolidColorBrush(Colors.Red);
+                    myLine.Stroke = new SolidColorBrush(Colors.Cyan);
                     myLine.X1 = LayoutRoot.ActualWidth / 2;
                     myLine.X2 = 0;
                     myLine.Y1 = LayoutRoot.RowDefinitions[1].ActualHeight / 2;

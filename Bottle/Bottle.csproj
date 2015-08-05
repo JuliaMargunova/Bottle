@@ -149,6 +149,8 @@
     </Content>
     <Content Include="Images\bottle.png" />
     <Content Include="Images\bottle1.png" />
+    <Content Include="Images\increase.png" />
+    <Content Include="Images\reduction.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
