@@ -49,15 +49,14 @@ namespace Bottle
             bottleImage.RenderTransform = MyTransform;
             bottleImage.RenderTransformOrigin = new Point(0.5, 0.5);
             MyStory.Begin();
-            
         }
 
         private void bottleImage_Start(object sender, System.Windows.Input.GestureEventArgs e)
         {
             Degrees = random.Next(360, 720);
             rotate(Degrees);
-            var n = Math.Floor( Degrees / 360);
-            MessageBox.Show((Degrees - n * 360).ToString() +","+Degrees.ToString());
+            //    var n = Math.Floor(Degrees / 360);
+            //    MessageBox.Show((Degrees - n * 360).ToString() + "," + Degrees.ToString());
         }
 
         private void DivideGrid(int countGamers)
@@ -66,26 +65,47 @@ namespace Bottle
             {
                 double heightLine = Math.Sqrt(Math.Pow(LayoutRoot.ActualWidth / 2, 2) + Math.Pow(LayoutRoot.RowDefinitions[1].ActualHeight / 2, 2));
                 double angle = 360 / countGamers;
-                double transformAngle = 90;
+                double transformAngleLine = 90;
+                double transformAngleNumber = 90;
                 for (int i = 0; i < countGamers; i++)
                 {
                     Line myLine = new Line();
-                    transformAngle += angle;
+                    transformAngleLine += angle;
+                    transformAngleNumber = transformAngleNumber + angle / 2;
                     string aa = "myLine" + i.ToString();
                     myLine.Stroke = new SolidColorBrush(Colors.Cyan);
-                    myLine.X1 = LayoutRoot.ActualWidth / 2;
+                    myLine.X1 = ContentPanel.ActualWidth / 2;
                     myLine.X2 = 0;
-                    myLine.Y1 = LayoutRoot.RowDefinitions[1].ActualHeight / 2;
-                    myLine.Y2 = LayoutRoot.RowDefinitions[1].ActualHeight / 2;
+                    myLine.Y1 = ContentPanel.ActualHeight / 2;
+                    myLine.Y2 = ContentPanel.ActualHeight / 2;
                     myLine.StrokeThickness = 2;
                     myLine.SetValue(Grid.RowProperty, 1);
                     myLine.Name = aa;
                     RotateTransform MyTransform = new RotateTransform();
                     myLine.RenderTransform = MyTransform;
                     myLine.RenderTransformOrigin = new Point(0.5, 0.5);
-                    MyTransform.Angle = transformAngle;
+                    MyTransform.Angle = transformAngleLine;
                     LayoutRoot.Children.Add(myLine);
-                    Canvas.SetZIndex(FindName(aa) as Line, 5 + i);
+                    Canvas.SetZIndex(FindName(aa) as Line, 1);
+
+                    TextBlock numberGamer = new TextBlock();
+                    numberGamer.Name = "number" + i.ToString();
+                    numberGamer.Text = (i + 1).ToString();
+                    numberGamer.SetValue(Grid.RowProperty, 0);
+                    numberGamer.SetValue(Grid.ColumnProperty, 1);
+                    numberGamer.HorizontalAlignment = HorizontalAlignment.Center;
+                    numberGamer.VerticalAlignment = VerticalAlignment.Center;
+                    numberGamer.FontSize = GridNumberGamer.ActualHeight * 80 / 100;
+
+                    var radius = ContentPanel.ActualHeight / 2;
+                    var y0 = ContentPanel.ActualHeight / 2;
+                    var х1 = (Math.Cos(Math.PI * transformAngleNumber / 180) * radius * 75 / 100);
+                    var у1 = y0 + (Math.Sin(Math.PI * transformAngleNumber / 180) * radius * 75 / 100);
+                    MatrixTransform matrixTransform = new MatrixTransform();
+                    numberGamer.RenderTransform = matrixTransform;
+                    matrixTransform.Matrix = new Matrix(1, 0, 0, 1, х1, у1);
+                    GridNumberGamer.Children.Add(numberGamer);
+                    transformAngleNumber += angle / 2;
                 }
             }
             catch (Exception ex)
