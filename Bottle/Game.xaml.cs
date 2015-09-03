@@ -17,23 +17,25 @@ namespace Bottle
 {
     public partial class Game : PhoneApplicationPage
     {
-        private double Degrees { get; set; }
+        //private double Degrees { get; set; }
         private Random random { get; set; }
         private int CountGamers { get; set; }
+        private int CurrentGamer { get; set; }
         IsolatedStorageSettings AppSettings;
         public Game()
         {
             InitializeComponent();
-            Degrees = 0;
+           // Degrees = 0;
+            CurrentGamer = 1;
             AppSettings = IsolatedStorageSettings.ApplicationSettings;
             random = new Random();
         }
 
-        //protected override void OnNavigatedTo(NavigationEventArgs e)
-        //{
-        //    base.OnNavigatedTo(e);
-        //    DivideGrid(4);
-        //}
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            CountGamers = Convert.ToInt32(AppSettings["countGamers"]);
+        }
 
         private void rotate(double degrees)
         {
@@ -49,14 +51,33 @@ namespace Bottle
             bottleImage.RenderTransform = MyTransform;
             bottleImage.RenderTransformOrigin = new Point(0.5, 0.5);
             MyStory.Begin();
+            MyStory.Completed += animationRotateBottle_Completed;
+        }
+
+        private void animationRotateBottle_Completed(object sender, EventArgs e)
+        {
+            text.Text = String.Format("{0} ИГРОК КРУТИТ БУТЫЛОЧКУ", CurrentGamer);
         }
 
         private void bottleImage_Start(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            Degrees = random.Next(360, 720);
-            rotate(Degrees);
-            //    var n = Math.Floor(Degrees / 360);
-            //    MessageBox.Show((Degrees - n * 360).ToString() + "," + Degrees.ToString());
+            double degrees = 0;
+            do
+            {
+                degrees = random.Next(360, 720);
+            } while (GetNumberGamer(degrees) == CurrentGamer);
+            CurrentGamer = GetNumberGamer(degrees);
+            rotate(degrees);
+
+            //MessageBox.Show((Degrees - n * 360).ToString() + "," + Degrees.ToString() + " ," + GetNumberGamer(Degrees - n * 360).ToString());
+        }
+
+        private int GetNumberGamer(double angle)
+        {
+            var n = Math.Floor(angle / 360);
+            angle = angle - n * 360;
+            int numberGamer = Convert.ToInt32(Math.Floor(angle / (360.0 / CountGamers)) + 1);
+            return numberGamer;
         }
 
         private void DivideGrid(int countGamers)
@@ -64,48 +85,45 @@ namespace Bottle
             try
             {
                 double heightLine = Math.Sqrt(Math.Pow(LayoutRoot.ActualWidth / 2, 2) + Math.Pow(LayoutRoot.RowDefinitions[1].ActualHeight / 2, 2));
-                double angle = 360 / countGamers;
-                double transformAngleLine = 90;
-                double transformAngleNumber = 90;
+                double angle = 360.0 / countGamers;
+                double transformAngleLine = -90;
+                double transformAngleNumber = 0;
                 for (int i = 0; i < countGamers; i++)
                 {
                     Line myLine = new Line();
                     transformAngleLine += angle;
-                    transformAngleNumber = transformAngleNumber + angle / 2;
-                    string aa = "myLine" + i.ToString();
+                    transformAngleNumber = transformAngleLine - angle / 2;
+                    string nameLine = "myLine" + i.ToString();
                     myLine.Stroke = new SolidColorBrush(Colors.Cyan);
                     myLine.X1 = LayoutRoot.ActualWidth / 2;
-                    myLine.X2 = 0;
+                    myLine.X2 = LayoutRoot.ActualWidth;
                     myLine.Y1 = LayoutRoot.RowDefinitions[1].ActualHeight / 2;
                     myLine.Y2 = LayoutRoot.RowDefinitions[1].ActualHeight / 2;
                     myLine.StrokeThickness = 2;
                     myLine.SetValue(Grid.RowProperty, 1);
-                    myLine.Name = aa;
+                    myLine.Name = nameLine;
                     RotateTransform MyTransform = new RotateTransform();
                     myLine.RenderTransform = MyTransform;
                     myLine.RenderTransformOrigin = new Point(0.5, 0.5);
                     MyTransform.Angle = transformAngleLine;
                     LayoutRoot.Children.Add(myLine);
-                    Canvas.SetZIndex(FindName(aa) as Line, 1);
+                    Canvas.SetZIndex(FindName(nameLine) as Line, 1);
 
                     TextBlock numberGamer = new TextBlock();
                     numberGamer.Name = "number" + i.ToString();
                     numberGamer.Text = (i + 1).ToString();
-                    //numberGamer.SetValue(Grid.RowProperty, 0);
-                    //numberGamer.SetValue(Grid.ColumnProperty, 1);
                     numberGamer.HorizontalAlignment = HorizontalAlignment.Center;
                     numberGamer.VerticalAlignment = VerticalAlignment.Center;
                     numberGamer.FontSize = GridNumberGamer.ActualHeight * 80 / 100;
 
                     var radius = LayoutRoot.RowDefinitions[1].ActualHeight / 2;
                     var y0 = LayoutRoot.ActualHeight / 2;
-                     var х1 = (Math.Cos(Math.PI * transformAngleNumber / 180) * radius * 90 / 100);
-                    var у1 = y0 + (Math.Sin(Math.PI * transformAngleNumber / 180) * radius * 90 / 100);
+                    var х1 = (Math.Cos(Math.PI * transformAngleNumber / 180) * radius * 85 / 100);
+                    var у1 = y0 + (Math.Sin(Math.PI * transformAngleNumber / 180) * radius * 85 / 100);
                     MatrixTransform matrixTransform = new MatrixTransform();
                     numberGamer.RenderTransform = matrixTransform;
                     matrixTransform.Matrix = new Matrix(1, 0, 0, 1, х1, у1);
                     LayoutRoot.Children.Add(numberGamer);
-                    transformAngleNumber += angle / 2;
                 }
             }
             catch (Exception ex)
