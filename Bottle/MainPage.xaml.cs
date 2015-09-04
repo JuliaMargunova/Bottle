@@ -9,6 +9,9 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Bottle.Resources;
 using System.IO.IsolatedStorage;
+using Bottle.Repository;
+using Bottle.Entities;
+using System.Windows.Media.Imaging;
 
 namespace Bottle
 {
@@ -16,17 +19,25 @@ namespace Bottle
     {
         public int CountGamers { get; set; }
         IsolatedStorageSettings AppSettings;
+        BottleRepository bottleRepository;
+        public int CountBottle { get; set; }
+        int numberBottle = 1;
+        BottleInfo bottle;
         // Constructor
         public MainPage()
         {
             InitializeComponent();
+            bottleRepository = new BottleRepository();
+            bottle = bottleRepository.GetBottle(numberBottle);
+            CountBottle = bottleRepository.GetCountBottle();
             AppSettings = IsolatedStorageSettings.ApplicationSettings;
             if (AppSettings.Contains("countGamers"))
             {
                 CountGamers = (int)AppSettings["countGamers"];
                 TBCountGamers.Text = CountGamers.ToString();
             }
-            else {
+            else
+            {
                 CountGamers = Convert.ToInt32(TBCountGamers.Text);
             }
         }
@@ -41,8 +52,8 @@ namespace Bottle
             if (AppSettings.Contains("countGamers") && (int)AppSettings["countGamers"] != CountGamers)
             {
                 AppSettings["countGamers"] = CountGamers;
-            }           
-            NavigationService.Navigate(new Uri("/Game.xaml", UriKind.Relative));
+            }
+            NavigationService.Navigate(new Uri(String.Format("/Game.xaml?ParameterString={0}", bottle.Path), UriKind.Relative));
         }
 
 
@@ -67,7 +78,27 @@ namespace Bottle
 
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
+            bottleImage.Source = new BitmapImage(new Uri(bottle.Path, UriKind.RelativeOrAbsolute));
+        }
 
+        private void IncreaseBottle_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            if (CountBottle != numberBottle)
+            {
+                numberBottle++;
+                bottle = bottleRepository.GetBottle(numberBottle);
+                bottleImage.Source = new BitmapImage(new Uri(bottle.Path, UriKind.RelativeOrAbsolute));
+            }
+        }
+
+        private void ReductionBottle_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            if (1 != numberBottle)
+            {
+                numberBottle--;
+                bottle = bottleRepository.GetBottle(numberBottle);
+                bottleImage.Source = new BitmapImage(new Uri(bottle.Path, UriKind.RelativeOrAbsolute));
+            }
         }
 
 

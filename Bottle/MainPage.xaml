@@ -41,8 +41,7 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="rttt" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
@@ -62,7 +61,7 @@
             <Grid Grid.Column="1" Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
-                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="5*"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -71,8 +70,17 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Image x:Name="ImgIncrease" Source="/Images/increase.png" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Tap="IncreaseGamers_Tap" />
-                <TextBlock x:Name="TBCountGamers"  Grid.Row="1" Grid.Column="1" Width="50" Height="50" Text="1" TextAlignment="Center"  />
+                <TextBlock x:Name="TBCountGamers"  Grid.Row="1" Grid.Column="1" Width="60" Height="60" Text="1" TextAlignment="Center"/>
                 <Image x:Name="ImgReduction" Source="/Images/reduction.png" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Tap="ReductionGamers_Tap" />
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="0">
+                <Image x:Name="IncreaseBottle" Source="/Images/increase.png"  HorizontalAlignment="Right" Tap="IncreaseBottle_Tap" />
+                <Image x:Name="ReductionBottle" Source="/Images/reduction.png"  HorizontalAlignment="Left" Tap="ReductionBottle_Tap" />
+                <Image RenderTransformOrigin="0.5,0.5" Grid.RowSpan="1" x:Name="bottleImage" Source="/Images/bottle.png">
+                    <Image.RenderTransform>
+                        <RotateTransform Angle="15"/>
+                    </Image.RenderTransform>
+                </Image>
             </Grid>
         </Grid>
 

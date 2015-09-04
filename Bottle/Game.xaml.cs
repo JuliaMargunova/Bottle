@@ -12,6 +12,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.IO.IsolatedStorage;
+using System.Windows.Media.Imaging;
 
 namespace Bottle
 {
@@ -35,6 +36,7 @@ namespace Bottle
         {
             base.OnNavigatedTo(e);
             CountGamers = Convert.ToInt32(AppSettings["countGamers"]);
+            bottleImage.Source = new BitmapImage(new Uri (NavigationContext.QueryString["ParameterString"].ToString(),UriKind.RelativeOrAbsolute));
         }
 
         private void rotate(double degrees)
