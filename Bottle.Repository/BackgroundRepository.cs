@@ -18,9 +18,9 @@ namespace Bottle.Repository
                 new Background{Path = "/Images/background/kover.jpg", ColorLine = Colors.Red },
                 new Background{Path = "/Images/background/serzewp.jpg", ColorLine = Colors.Yellow},
                 new Background{Path = "/Images/background/derevowp.jpg", ColorLine = Colors.Orange},
-                new Background{Path = "/Images/background/travawp.jpg", ColorLine = Colors.}, 
-                new Background{Path = "/Images/background/kirpichwp.jpg"},
-                new Background{Path = "/Images/background/oboi.jpg"}
+                new Background{Path = "/Images/background/travawp.jpg", ColorLine = Colors.Blue}, 
+                new Background{Path = "/Images/background/kirpichwp.jpg", ColorLine = Colors.Orange},
+                new Background{Path = "/Images/background/oboi.jpg", ColorLine = Colors.Green}
             };
         }
 
@@ -29,12 +29,12 @@ namespace Bottle.Repository
             return backgrounds;
         }
 
-        public Background GetBottle(int numberBackground)
+        public Background GetBackground(int numberBackground)
         {
             return backgrounds[numberBackground - 1];
         }
 
-        public int GetCountBottle()
+        public int GetCountBackground()
         {
             return backgrounds.Count();
         }

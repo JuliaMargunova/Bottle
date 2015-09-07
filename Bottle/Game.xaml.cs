@@ -13,20 +13,20 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using System.IO.IsolatedStorage;
 using System.Windows.Media.Imaging;
+using Bottle.Repository;
 
 namespace Bottle
 {
     public partial class Game : PhoneApplicationPage
     {
-        //private double Degrees { get; set; }
         private Random random { get; set; }
         private int CountGamers { get; set; }
         private int CurrentGamer { get; set; }
+        private Color colorLine { get; set; }
         IsolatedStorageSettings AppSettings;
         public Game()
         {
             InitializeComponent();
-           // Degrees = 0;
             CurrentGamer = 1;
             AppSettings = IsolatedStorageSettings.ApplicationSettings;
             random = new Random();
@@ -35,8 +35,17 @@ namespace Bottle
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            CountGamers = Convert.ToInt32(AppSettings["countGamers"]);
-            bottleImage.Source = new BitmapImage(new Uri (NavigationContext.QueryString["ParameterString"].ToString(),UriKind.RelativeOrAbsolute));
+            BackgroundRepository backgroundRepository = new BackgroundRepository();
+            BottleRepository bottleRepository = new BottleRepository();
+            string[] parameters = NavigationContext.QueryString["ParameterString"].ToString().Split(',');
+            CountGamers = Convert.ToInt32(parameters[0]);
+            int numberBottle = Convert.ToInt32(parameters[1]);
+            int numberBackground = Convert.ToInt32(parameters[2]);
+            bottleImage.Source = new BitmapImage(new Uri(bottleRepository.GetBottle(numberBottle).Path, UriKind.RelativeOrAbsolute));
+            ImageBrush img = new ImageBrush();
+            img.ImageSource = new BitmapImage(new Uri(backgroundRepository.GetBackground(numberBackground).Path, UriKind.RelativeOrAbsolute));
+            LayoutRoot.Background = img;
+            colorLine = backgroundRepository.GetBackground(numberBackground).ColorLine;
         }
 
         private void rotate(double degrees)
@@ -96,7 +105,7 @@ namespace Bottle
                     transformAngleLine += angle;
                     transformAngleNumber = transformAngleLine - angle / 2;
                     string nameLine = "myLine" + i.ToString();
-                    myLine.Stroke = new SolidColorBrush(Colors.Cyan);
+                    myLine.Stroke = new SolidColorBrush(colorLine);
                     myLine.X1 = LayoutRoot.ActualWidth / 2;
                     myLine.X2 = LayoutRoot.ActualWidth;
                     myLine.Y1 = LayoutRoot.RowDefinitions[1].ActualHeight / 2;
