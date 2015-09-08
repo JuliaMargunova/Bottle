@@ -8,6 +8,36 @@
     <!--Application Resources-->
     <Application.Resources>
         <local:LocalizedStrings xmlns:local="clr-namespace:Bottle" x:Key="LocalizedStrings"/>
+        <Style x:Key="PlayButton" TargetType="Button">
+            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="FontSize" Value="50"></Setter>
+            <!--<Setter Property="Width" Value="450"></Setter>
+            <Setter Property="Height" Value="140"></Setter>-->
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,0" EndPoint="0,1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Offset="0.00" Color="#FF67BA06" />
+                            <GradientStop Offset="0.50" Color="#FF94D729" />
+                            <GradientStop Offset="1.00" Color="#FF67BA06" />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                    <!--<ImageBrush ImageSource="/Images/guessback200str.png" />-->
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="Transparent">                           
+                            <Border x:Name="ButtonBackground" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" Background="{TemplateBinding Background}" CornerRadius="20" Margin="{StaticResource PhoneTouchTargetOverhang}">
+                                <ContentControl x:Name="ContentContainer" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

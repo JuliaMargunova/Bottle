@@ -60,33 +60,6 @@
             </Line>-->
             <Ellipse Width="320" Height="320"  RenderTransformOrigin="0.5,1" Grid.RowSpan="3"/>
 
-        </Grid>
-        <!--<TextBlock   Text="1" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock.RenderTransform>
-                <MatrixTransform >
-                    <MatrixTransform.Matrix >
-                        <Matrix OffsetX="-213" OffsetY="240" M11="1" M12="0" M21="0" M22="1"/>
-                    </MatrixTransform.Matrix>
-                </MatrixTransform>
-            </TextBlock.RenderTransform>
-        </TextBlock>
-        <TextBlock   Text="1" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock.RenderTransform>
-                <MatrixTransform>
-                    <MatrixTransform.Matrix >
-                        <Matrix OffsetX="106" OffsetY="55" M11="1" M12="0" M21="0" M22="1"/>
-                    </MatrixTransform.Matrix>
-                </MatrixTransform>
-            </TextBlock.RenderTransform>
-        </TextBlock>
-        <TextBlock   Text="1" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock.RenderTransform>
-                <MatrixTransform>
-                    <MatrixTransform.Matrix >
-                        <Matrix OffsetX="106" OffsetY="424" M11="1" M12="0" M21="0" M22="1"/>
-                    </MatrixTransform.Matrix>
-                </MatrixTransform>
-            </TextBlock.RenderTransform>
-        </TextBlock>-->
+        </Grid>       
     </Grid>
 </phone:PhoneApplicationPage>

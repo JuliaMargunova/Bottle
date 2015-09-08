@@ -12,6 +12,7 @@ using System.IO.IsolatedStorage;
 using Bottle.Repository;
 using Bottle.Entities;
 using System.Windows.Media.Imaging;
+using System.Windows.Media;
 
 namespace Bottle
 {
@@ -70,9 +71,11 @@ namespace Bottle
                 NumberBackground = 1;
             }
             background = backgroundRepository.GetBackground(NumberBackground);
-            BackgroundImage.Source = new BitmapImage(new Uri(background.Path, UriKind.RelativeOrAbsolute)); 
+            BackgroundImage.Source = new BitmapImage(new Uri(background.Path, UriKind.RelativeOrAbsolute));
+            ImageBrush img = new ImageBrush();
+            img.ImageSource = new BitmapImage(new Uri(background.Path, UriKind.RelativeOrAbsolute));
+            SettingsGrid.Background = img;
 
-            
             CountBottle = bottleRepository.GetCountBottle();
             CountBackground = backgroundRepository.GetCountBackground();
         }
@@ -172,7 +175,11 @@ namespace Bottle
                 NumberBackground = 1;
             }
             background = backgroundRepository.GetBackground(NumberBackground);
-            BackgroundImage.Source = new BitmapImage(new Uri(background.Path, UriKind.RelativeOrAbsolute));   
+            BackgroundImage.Source = new BitmapImage(new Uri(background.Path, UriKind.RelativeOrAbsolute));
+            ImageBrush img = new ImageBrush();
+            img.ImageSource = new BitmapImage(new Uri(background.Path, UriKind.RelativeOrAbsolute));
+            SettingsGrid.Background = img;
+
         }
 
         private void ReductionBackgground_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -186,7 +193,10 @@ namespace Bottle
                 NumberBackground = CountBackground;
             }
             background = backgroundRepository.GetBackground(NumberBackground);
-            BackgroundImage.Source = new BitmapImage(new Uri(background.Path, UriKind.RelativeOrAbsolute));   
+            BackgroundImage.Source = new BitmapImage(new Uri(background.Path, UriKind.RelativeOrAbsolute));
+            ImageBrush img = new ImageBrush();
+            img.ImageSource = new BitmapImage(new Uri(background.Path, UriKind.RelativeOrAbsolute));
+            SettingsGrid.Background = img;
         }
 
 

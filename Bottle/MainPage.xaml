@@ -11,10 +11,14 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Landscape" Orientation="Landscape"
-    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
+    shell:SystemTray.IsVisible="False" Loaded="PhoneApplicationPage_Loaded">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="CountGamer1" Background="Transparent">
+    <Grid x:Name="SettingsGrid" >
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/background/oboi.jpg">
+            </ImageBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -40,12 +44,12 @@
          -->
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="rttt" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="0,3">
+            <TextBlock Text="Настройки" HorizontalAlignment="Center" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        <Grid x:Name="ContentPaэnel" Grid.Row="1" Margin="12,0,12,0">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -54,14 +58,49 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="176"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="game" Grid.Column="1" Grid.Row="1" Width="Auto" Content="Играть" Click="game_Click_1"/>
-            <Grid Grid.Column="1" Grid.Row="2">
+            <Grid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
-                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition/>
+                    
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition/>                   
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" Grid.Row="1"  x:Name="game"  FontSize="30" FontFamily="Comic Sans MS" Content="ИГРАТЬ" Style="{StaticResource PlayButton}" Click="game_Click_1"/>
+            </Grid>
+             <Grid Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="3.5*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="ImgIncrease" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Source="/Images/increase.png" Tap="IncreaseGamers_Tap" />
+                <Border Grid.Row="1" Grid.Column="1" BorderThickness="5" CornerRadius="20">
+                    <Grid Grid.RowSpan="3" Grid.Column="1" Background="Black" Opacity="0.5">
+                    </Grid>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="1" BorderBrush="#FF67BA06" BorderThickness="5" CornerRadius="20">
+                    <TextBlock Grid.Column="1" Grid.RowSpan="3" x:Name="TBCountGamers" FontSize="50" FontFamily="Comic Sans MS" Text="1" TextAlignment="Center" VerticalAlignment="Center"  />
+                </Border>
+                    <Image x:Name="ImgReduction" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Source="/Images/reduction.png"  Tap="ReductionGamers_Tap" />
+            </Grid>
+            <Grid Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="1.5*"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -69,23 +108,41 @@
                     <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image x:Name="ImgIncrease" Source="/Images/increase.png" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Tap="IncreaseGamers_Tap" />
-                <TextBlock x:Name="TBCountGamers"  Grid.Row="1" Grid.Column="1" Width="60" Height="60" Text="1" TextAlignment="Center"/>
-                <Image x:Name="ImgReduction" Source="/Images/reduction.png" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Tap="ReductionGamers_Tap" />
+                <Image Grid.Column="2" Grid.Row="1" x:Name="IncreaseBottle" Source="/Images/increase.png"  HorizontalAlignment="Right" Tap="IncreaseBottle_Tap" />
+                <Image Grid.Column="0" Grid.Row="1" x:Name="ReductionBottle" Source="/Images/reduction.png"  HorizontalAlignment="Left" Tap="ReductionBottle_Tap" />
+                <Border Grid.RowSpan="3" Grid.Column="1" BorderThickness="5" CornerRadius="20">
+                    <Grid Grid.RowSpan="3" Grid.Column="1" Background="Black" Opacity="0.5">                        
+                    </Grid>
+                </Border>
+                <Border Grid.RowSpan="3" Grid.Column="1" BorderBrush="#FF67BA06" BorderThickness="5" CornerRadius="20">
+                    <Image  RenderTransformOrigin="0.5,0.5"  x:Name="bottleImage" Source="/Images/bottle/bottle.png">
+                        <Image.RenderTransform>
+                            <RotateTransform Angle="15"/>
+                        </Image.RenderTransform>
+                    </Image>
+                </Border>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="0">
-                <Image x:Name="IncreaseBottle" Source="/Images/increase.png"  HorizontalAlignment="Right" Tap="IncreaseBottle_Tap" />
-                <Image x:Name="ReductionBottle" Source="/Images/reduction.png"  HorizontalAlignment="Left" Tap="ReductionBottle_Tap" />
-                <Image RenderTransformOrigin="0.5,0.5" Grid.RowSpan="1" x:Name="bottleImage" Source="/Images/bottle/bottle.png">
-                    <Image.RenderTransform>
-                        <RotateTransform Angle="15"/>
-                    </Image.RenderTransform>
-                </Image>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="3">
-                <Image x:Name="IncreaseBackground" Source="/Images/increase.png"  HorizontalAlignment="Right" Tap="IncreaseBackground_Tap" />
-                <Image x:Name="ReductionBackgground" Source="/Images/reduction.png"  HorizontalAlignment="Left" Tap="ReductionBackgground_Tap" />
-                <Image Grid.RowSpan="1" x:Name="BackgroundImage" Source="/Images/background/kover.jpg"></Image>
+            
+            <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="2" Grid.Row="1" x:Name="IncreaseBackground" Source="/Images/increase.png"  HorizontalAlignment="Right" Tap="IncreaseBackground_Tap" />
+                <Image Grid.Column="0" Grid.Row="1" x:Name="ReductionBackgground" Source="/Images/reduction.png"  HorizontalAlignment="Left" Tap="ReductionBackgground_Tap" />
+                <Border Grid.RowSpan="3" Grid.Column="1" BorderThickness="5" CornerRadius="20">
+                    <Grid Grid.RowSpan="3" Grid.Column="1" Background="Black" Opacity="0.5">
+                    </Grid>
+                </Border>
+                <Border Grid.RowSpan="3" Grid.Column="1" BorderBrush="#FF67BA06" BorderThickness="5" CornerRadius="20">
+                    <Image x:Name="BackgroundImage" Source="/Images/background/oboi.jpg"></Image>
+                </Border>
             </Grid>
         </Grid>
 

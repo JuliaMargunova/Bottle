@@ -156,6 +156,10 @@
     <Content Include="Images\background\travawp.jpg" />
     <Content Include="Images\bottle\bottle.png" />
     <Content Include="Images\bottle\bottle1.png" />
+    <Content Include="Images\frames\1.png" />
+    <Content Include="Images\frames\2.png" />
+    <Content Include="Images\frames\3.png" />
+    <Content Include="Images\frames\ramka.png" />
     <Content Include="Images\increase.png" />
     <Content Include="Images\bottle\martini.png" />
     <Content Include="Images\reduction.png" />
@@ -178,6 +182,7 @@
       <Name>Bottle.Repository</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
