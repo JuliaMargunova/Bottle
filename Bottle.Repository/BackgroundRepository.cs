@@ -18,9 +18,11 @@ namespace Bottle.Repository
                 new Background{Path = "/Images/background/kover.jpg", ColorLine = Colors.Red },
                 new Background{Path = "/Images/background/serzewp.jpg", ColorLine = Colors.Yellow},
                 new Background{Path = "/Images/background/derevowp.jpg", ColorLine = Colors.Orange},
-                new Background{Path = "/Images/background/travawp.jpg", ColorLine = Colors.Blue}, 
+                new Background{Path = "/Images/background/travawp.jpg", ColorLine = Colors.Red}, 
                 new Background{Path = "/Images/background/kirpichwp.jpg", ColorLine = Colors.Orange},
-                new Background{Path = "/Images/background/oboi.jpg", ColorLine = Colors.Green}
+                new Background{Path = "/Images/background/big1.jpg", ColorLine = Color.FromArgb(255,255,151,0)},
+                new Background{Path = "/Images/background/big2.jpg", ColorLine = Color.FromArgb(255,0,174,255)},
+                new Background{Path = "/Images/background/big4.jpg", ColorLine = Color.FromArgb(255,239,142,138)}
             };
         }
 

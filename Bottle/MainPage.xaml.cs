@@ -75,7 +75,6 @@ namespace Bottle
             ImageBrush img = new ImageBrush();
             img.ImageSource = new BitmapImage(new Uri(background.Path, UriKind.RelativeOrAbsolute));
             SettingsGrid.Background = img;
-
             CountBottle = bottleRepository.GetCountBottle();
             CountBackground = backgroundRepository.GetCountBackground();
         }
@@ -115,7 +114,7 @@ namespace Bottle
 
         private void ReductionGamers_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            if (CountGamers != 1)
+            if (CountGamers != 2)
             {
                 CountGamers--;
                 TBCountGamers.Text = CountGamers.ToString();

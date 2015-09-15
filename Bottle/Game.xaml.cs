@@ -46,6 +46,7 @@ namespace Bottle
             img.ImageSource = new BitmapImage(new Uri(backgroundRepository.GetBackground(numberBackground).Path, UriKind.RelativeOrAbsolute));
             LayoutRoot.Background = img;
             colorLine = backgroundRepository.GetBackground(numberBackground).ColorLine;
+            CurrentGamerLabel.Foreground = new SolidColorBrush(colorLine);
         }
 
         private void rotate(double degrees)
@@ -67,7 +68,7 @@ namespace Bottle
 
         private void animationRotateBottle_Completed(object sender, EventArgs e)
         {
-            text.Text = String.Format("{0} ИГРОК КРУТИТ БУТЫЛОЧКУ", CurrentGamer);
+            CurrentGamerLabel.Text = String.Format("{0} ИГРОК КРУТИТ БУТЫЛОЧКУ", CurrentGamer);
         }
 
         private void bottleImage_Start(object sender, System.Windows.Input.GestureEventArgs e)
@@ -79,8 +80,6 @@ namespace Bottle
             } while (GetNumberGamer(degrees) == CurrentGamer);
             CurrentGamer = GetNumberGamer(degrees);
             rotate(degrees);
-
-            //MessageBox.Show((Degrees - n * 360).ToString() + "," + Degrees.ToString() + " ," + GetNumberGamer(Degrees - n * 360).ToString());
         }
 
         private int GetNumberGamer(double angle)
@@ -95,7 +94,7 @@ namespace Bottle
         {
             try
             {
-                double heightLine = Math.Sqrt(Math.Pow(LayoutRoot.ActualWidth / 2, 2) + Math.Pow(LayoutRoot.RowDefinitions[1].ActualHeight / 2, 2));
+                // double heightLine = Math.Sqrt(Math.Pow(LayoutRoot.ActualWidth / 2, 2) + Math.Pow(LayoutRoot.RowDefinitions[1].ActualHeight / 2, 2));
                 double angle = 360.0 / countGamers;
                 double transformAngleLine = -90;
                 double transformAngleNumber = 0;
@@ -108,9 +107,9 @@ namespace Bottle
                     myLine.Stroke = new SolidColorBrush(colorLine);
                     myLine.X1 = LayoutRoot.ActualWidth / 2;
                     myLine.X2 = LayoutRoot.ActualWidth;
-                    myLine.Y1 = LayoutRoot.RowDefinitions[1].ActualHeight / 2;
-                    myLine.Y2 = LayoutRoot.RowDefinitions[1].ActualHeight / 2;
-                    myLine.StrokeThickness = 2;
+                    myLine.Y1 = LayoutRoot.ActualHeight / 2;
+                    myLine.Y2 = LayoutRoot.ActualHeight / 2;
+                    myLine.StrokeThickness = 3;
                     myLine.SetValue(Grid.RowProperty, 1);
                     myLine.Name = nameLine;
                     RotateTransform MyTransform = new RotateTransform();
@@ -126,15 +125,34 @@ namespace Bottle
                     numberGamer.HorizontalAlignment = HorizontalAlignment.Center;
                     numberGamer.VerticalAlignment = VerticalAlignment.Center;
                     numberGamer.FontSize = GridNumberGamer.ActualHeight * 80 / 100;
+                    numberGamer.TextWrapping = TextWrapping.NoWrap;
+                    numberGamer.FontFamily = new FontFamily("Comic Sans MS");
 
-                    var radius = LayoutRoot.RowDefinitions[1].ActualHeight / 2;
-                    var y0 = LayoutRoot.ActualHeight / 2;
-                    var х1 = (Math.Cos(Math.PI * transformAngleNumber / 180) * radius * 85 / 100);
-                    var у1 = y0 + (Math.Sin(Math.PI * transformAngleNumber / 180) * radius * 85 / 100);
+                    Border b = new Border();
+                    Border b2 = new Border();
+                    b.BorderThickness = b2.BorderThickness = new Thickness(3);
+                    b.CornerRadius = b2.CornerRadius = new CornerRadius(20);
+                    b.BorderBrush = b2.BorderBrush = new SolidColorBrush(colorLine);
+                    b.Child = numberGamer;
+                    b.Height = b.Width = b2.Height = b2.Width = GridNumberGamer.ActualHeight;
+                    b.Margin = b2.Margin = new Thickness(0, 0, 0, -80);
+                    b2.Background = new SolidColorBrush(Colors.Black);
+                    b2.Opacity = 0.4;
+
+                    //var radius = LayoutRoot.RowDefinitions[1].ActualHeight / 2;
+                    var radius = LayoutRoot.ActualHeight / 2 * 84 / 100;
+
+                    var y0 = LayoutRoot.ActualHeight / 2 * 84 / 100;
+                    var х1 = (Math.Cos(Math.PI * transformAngleNumber / 180) * radius);
+                    var у1 = y0 + (Math.Sin(Math.PI * transformAngleNumber / 180) * radius);
                     MatrixTransform matrixTransform = new MatrixTransform();
-                    numberGamer.RenderTransform = matrixTransform;
+                    b.RenderTransform = b2.RenderTransform = matrixTransform;
                     matrixTransform.Matrix = new Matrix(1, 0, 0, 1, х1, у1);
-                    LayoutRoot.Children.Add(numberGamer);
+
+
+                    LayoutRoot.Children.Add(b2);
+                    LayoutRoot.Children.Add(b);
+
                 }
             }
             catch (Exception ex)

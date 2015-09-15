@@ -13,10 +13,13 @@ namespace Bottle.Repository
         public BottleRepository()
         {
             bottles = new List<BottleInfo> {
-                new BottleInfo{Path = "/Images/bottle/martini.png" },
+                new BottleInfo{Path = "/Images/bottle/martin.png" },
                 new BottleInfo{Path = "/Images/bottle/bottle1.png"},
                 new BottleInfo{Path = "/Images/bottle/vallo.png"},
-                new BottleInfo{Path = "/Images/bottle/vallois.png"},
+                new BottleInfo{Path = "/Images/bottle/vallos.png"},
+                new BottleInfo{Path = "/Images/bottle/finlandia.png" },
+                new BottleInfo{Path = "/Images/bottle/medel.png" },
+                new BottleInfo{Path = "/Images/bottle/zvezda.png" },
                 new BottleInfo{Path = "/Images/bottle/bottle.png"}                
             };
         }
