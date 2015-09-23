@@ -122,7 +122,7 @@
     <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
   </data>
   <data name="ResourceLanguage" xml:space="preserve">
-    <value>en-US</value>
+    <value>fr-FR</value>
     <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
   </data>
   <data name="ApplicationTitle" xml:space="preserve">
@@ -135,21 +135,21 @@
     <value>Menu Item</value>
   </data>
   <data name="CountGamer" xml:space="preserve">
-    <value>Count of gamers:</value>
+    <value>Nombre de joueurs:</value>
   </data>
   <data name="CurrentGamer" xml:space="preserve">
-    <value>{0} PLAYER TWISTS BOTTLE</value>
+    <value>{0} JOUEUR TOURNE BOUTEILLE</value>
   </data>
   <data name="Settings" xml:space="preserve">
-    <value>SETTINGS</value>
+    <value>REGLAGES</value>
   </data>
   <data name="Start" xml:space="preserve">
-    <value>PLAY</value>
+    <value>JOUER</value>
   </data>
   <data name="TypeBackground" xml:space="preserve">
-    <value>Type of background:</value>
+    <value>Type de fond:</value>
   </data>
   <data name="TypeBottle" xml:space="preserve">
-    <value>Type of bottle:</value>
+    <value>Type de bouteille:</value>
   </data>
 </root>

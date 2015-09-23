@@ -24,6 +24,8 @@ namespace Bottle
         private int CurrentGamer { get; set; }
         private Color colorLine { get; set; }
         IsolatedStorageSettings AppSettings;
+        private bool IsAudioStopped { get; set; }
+        private bool IsRotateStarted { get; set; }
         public Game()
         {
             InitializeComponent();
@@ -52,34 +54,49 @@ namespace Bottle
         private void rotate(double degrees)
         {
             Storyboard MyStory = new Storyboard();
-            MyStory.Duration = new TimeSpan(0, 0, 0, 0, 500);
+            MyStory.Duration = TimeSpan.FromMilliseconds(degrees);
             DoubleAnimation My_Double = new DoubleAnimation();
             My_Double.To = degrees;
-            My_Double.Duration = new TimeSpan(0, 0, 0, 0, 500);
+            My_Double.Duration = TimeSpan.FromMilliseconds(degrees);
             MyStory.Children.Add(My_Double);
             RotateTransform MyTransform = new RotateTransform();
             Storyboard.SetTarget(My_Double, MyTransform);
             Storyboard.SetTargetProperty(My_Double, new PropertyPath("Angle"));
             bottleImage.RenderTransform = MyTransform;
             bottleImage.RenderTransformOrigin = new Point(0.5, 0.5);
+            IsAudioStopped = false;
+            mediaElement.Play();
             MyStory.Begin();
             MyStory.Completed += animationRotateBottle_Completed;
         }
 
         private void animationRotateBottle_Completed(object sender, EventArgs e)
         {
+            IsRotateStarted = false;
+            IsAudioStopped = true;
+            mediaElement.Stop();
             CurrentGamerLabel.Text = String.Format("{0} ИГРОК КРУТИТ БУТЫЛОЧКУ", CurrentGamer);
+        }
+
+        private void mediaElement_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            if (!IsAudioStopped)
+                mediaElement.Play();
         }
 
         private void bottleImage_Start(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            double degrees = 0;
-            do
+            if (!IsRotateStarted)
             {
-                degrees = random.Next(360, 720);
-            } while (GetNumberGamer(degrees) == CurrentGamer);
-            CurrentGamer = GetNumberGamer(degrees);
-            rotate(degrees);
+                IsRotateStarted = true;
+                double degrees = 0;
+                do
+                {
+                    degrees = random.Next(360, 1080);
+                } while (GetNumberGamer(degrees) == CurrentGamer);
+                CurrentGamer = GetNumberGamer(degrees);
+                rotate(degrees);
+            }
         }
 
         private int GetNumberGamer(double angle)
@@ -172,7 +189,20 @@ namespace Bottle
         {
             DivideGrid(Convert.ToInt32(AppSettings["countGamers"]));
         }
+
+        private void bottleImage_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (!IsRotateStarted)
+            {
+                IsRotateStarted = true;
+                double degrees = 0;
+                do
+                {
+                    degrees = random.Next(360, 1080);
+                } while (GetNumberGamer(degrees) == CurrentGamer);
+                CurrentGamer = GetNumberGamer(degrees);
+                rotate(degrees);
+            }
+        }
     }
-
-
 }
