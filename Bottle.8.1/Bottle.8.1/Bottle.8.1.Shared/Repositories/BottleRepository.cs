@@ -11,14 +11,16 @@ namespace Bottle._8._1.Repositories
         public BottleRepository()
         {
             bottles = new List<BottleInfo> {
-                new BottleInfo{Path = "ms-appx:///Images/bottle/martin.png" },
-                new BottleInfo{Path = "ms-appx:///Images/bottle/bottle1.png"},
-                new BottleInfo{Path = "ms-appx:///Images/bottle/vallo.png"},
-                new BottleInfo{Path = "ms-appx:///Images/bottle/vallos.png"},
-                new BottleInfo{Path = "ms-appx:///Images/bottle/finlandia.png" },
-                new BottleInfo{Path = "ms-appx:///Images/bottle/medel.png" },
-                new BottleInfo{Path = "ms-appx:///Images/bottle/zvezda.png" },
-                new BottleInfo{Path = "ms-appx:///Images/bottle/bottle.png"}
+                new BottleInfo{Path = "ms-appx:///Images/bottle/1.png"},
+                new BottleInfo{Path = "ms-appx:///Images/bottle/2.png"},
+                new BottleInfo{Path = "ms-appx:///Images/bottle/3.png"},
+                new BottleInfo{Path = "ms-appx:///Images/bottle/4.png"},
+                new BottleInfo{Path = "ms-appx:///Images/bottle/5.png"},
+                new BottleInfo{Path = "ms-appx:///Images/bottle/6.png"},
+                new BottleInfo{Path = "ms-appx:///Images/bottle/7.png"},
+                new BottleInfo{Path = "ms-appx:///Images/bottle/9.png"},
+                new BottleInfo{Path = "ms-appx:///Images/bottle/10.png"},
+                new BottleInfo{Path = "ms-appx:///Images/bottle/11.png"}
             };
         }
 

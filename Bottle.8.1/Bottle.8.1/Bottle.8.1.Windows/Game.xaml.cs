@@ -1,14 +1,19 @@
 ﻿using Bottle._8._1.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
+using System.Threading.Tasks;
+using Windows.ApplicationModel;
 using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.UI;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -33,15 +38,25 @@ namespace Bottle._8._1
         private int CountGamers { get; set; }
         private int CurrentGamer { get; set; }
         private Color colorLine { get; set; }
+        private int numberBottle { get; set; }
         public ResourceLoader resourceLoader { get; set; }
         ApplicationDataContainer AppSettings = ApplicationData.Current.RoamingSettings;
         private bool IsRotateStarted { get; set; }
+        private List<string> Desires { get; set; }
+        public string Desire { get; set; }
+        private Image BottleImage { get; set; }
+
+        BackgroundRepository backgroundRepository;
+        BottleRepository bottleRepository;
+
         public Game()
         {
             InitializeComponent();
             CurrentGamer = 1;
             random = new Random();
             resourceLoader = new ResourceLoader();
+            backgroundRepository = new BackgroundRepository();
+            bottleRepository = new BottleRepository();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -51,15 +66,42 @@ namespace Bottle._8._1
             BottleRepository bottleRepository = new BottleRepository();
             string[] parameters = e.Parameter.ToString().Split(',');
             CountGamers = Convert.ToInt32(parameters[0]);
-            int numberBottle = Convert.ToInt32(parameters[1]);
+            numberBottle = Convert.ToInt32(parameters[1]);
             int numberBackground = Convert.ToInt32(parameters[2]);
-            bottleImage.Source = new BitmapImage(new Uri(bottleRepository.GetBottle(numberBottle).Path, UriKind.RelativeOrAbsolute));
             ImageBrush img = new ImageBrush();
             img.ImageSource = new BitmapImage(new Uri(backgroundRepository.GetBackground(numberBackground).Path, UriKind.RelativeOrAbsolute));
             LayoutRoot.Background = img;
             colorLine = backgroundRepository.GetBackground(numberBackground).ColorLine;
             CurrentGamerLabel.Foreground = new SolidColorBrush(colorLine);
             CurrentGamerLabel.Text = string.Format(resourceLoader.GetString("CurrentGamer/Text"), CurrentGamer);
+            Desires = GetListDesires();
+        }
+
+        private List<string> GetListDesires()
+        {
+            var currentCulture = CultureInfo.CurrentCulture.ToString().Substring(0, 2);
+            string fileName = currentCulture.ToString()+"Desire.txt";
+            var file = GetDictionary(fileName);
+            var taskStream = file.OpenStreamForReadAsync();
+            taskStream.Wait();
+            List<string> listText = new List<string>();
+            using (var objReader = new StreamReader(taskStream.Result, Encoding.GetEncoding("Windows-1251")))
+            {
+                while (!objReader.EndOfStream)
+                {
+                    listText.Add(objReader.ReadLine());
+                }
+            }
+            return listText;
+        }
+
+        private static StorageFile GetDictionary(string fileName)
+        {
+            Task<StorageFolder> taskFolder = Package.Current.InstalledLocation.GetFolderAsync("Desires").AsTask();
+            taskFolder.Wait();
+            Task<StorageFile> taskFile = taskFolder.Result.GetFileAsync(fileName).AsTask();
+            taskFile.Wait();
+            return taskFile.Result;
         }
 
         private void rotate(double degrees)
@@ -73,18 +115,45 @@ namespace Bottle._8._1
             RotateTransform MyTransform = new RotateTransform();
             Storyboard.SetTarget(My_Double, MyTransform);
             Storyboard.SetTargetProperty(My_Double, "Angle");
-            bottleImage.RenderTransform = MyTransform;
-            bottleImage.RenderTransformOrigin = new Point(0.5, 0.5);
+            BottleImage.RenderTransform = MyTransform;
+            BottleImage.RenderTransformOrigin = new Point(0.5, 0.5);
             mediaElement.Play();
             MyStory.Begin();
+            GridLabelCurrentGamer.Visibility = Visibility.Collapsed;
             MyStory.Completed += animationRotateBottle_Completed;
         }
 
-        private void animationRotateBottle_Completed(object sender, object e)
+        private async void animationRotateBottle_Completed(object sender, object e)
         {
-            IsRotateStarted = false;
             mediaElement.Stop();
-            CurrentGamerLabel.Text = string.Format(resourceLoader.GetString("CurrentGamer/Text"), CurrentGamer);
+            SetDesire();
+
+            MessageDialog msg = new MessageDialog(Desire, string.Format(resourceLoader.GetString("GamerDesire/Text"), CurrentGamer));
+            msg.Commands.Add(new UICommand("Ok", new UICommandInvokedHandler(CommandHandlers)));
+            await msg.ShowAsync();
+        }
+
+        public void CommandHandlers(IUICommand commandLabel)
+        {
+            var Actions = commandLabel.Label;
+            switch (Actions)
+            {
+                case "Ok":
+                    IsRotateStarted = false;
+                    CurrentGamerLabel.Text = string.Format(resourceLoader.GetString("CurrentGamer/Text"), CurrentGamer);
+                    GridLabelCurrentGamer.Visibility = Visibility.Visible;
+                    break;
+            }
+        }
+
+        private void SetDesire()
+        {
+            string desire;
+            do
+            {
+                desire = Desires[random.Next(0, Desires.Count())];
+            } while (Desire == desire);
+            Desire = desire;
         }
 
         private void bottleImage_Start(object sender, TappedRoutedEventArgs e)
@@ -110,11 +179,10 @@ namespace Bottle._8._1
             return numberGamer;
         }
 
-        private void DivideGrid(int countGamers, bool isOnlyLines = false)
+        private void DivideGrid(int countGamers)
         {
             try
             {
-                // double heightLine = Math.Sqrt(Math.Pow(LayoutRoot.ActualWidth / 2, 2) + Math.Pow(LayoutRoot.RowDefinitions[1].ActualHeight / 2, 2));
                 double angle = 360.0 / countGamers;
                 double transformAngleLine = -90;
                 double transformAngleNumber = 0;
@@ -130,16 +198,14 @@ namespace Bottle._8._1
                     myLine.Y1 = LayoutRoot.ActualHeight / 2;
                     myLine.Y2 = LayoutRoot.ActualHeight / 2;
                     myLine.StrokeThickness = 3;
-                    myLine.SetValue(Grid.RowProperty, 1);
+                    myLine.SetValue(Grid.RowProperty, 0);
+                    myLine.SetValue(Grid.RowSpanProperty, 2);
                     myLine.Name = nameLine;
                     RotateTransform MyTransform = new RotateTransform();
                     myLine.RenderTransform = MyTransform;
                     myLine.RenderTransformOrigin = new Point(0.5, 0.5);
                     MyTransform.Angle = transformAngleLine;
                     LayoutRoot.Children.Add(myLine);
-                    Canvas.SetZIndex(FindName(nameLine) as Line, 1);
-
-                    if (isOnlyLines) continue;
 
                     TextBlock numberGamer = new TextBlock();
                     numberGamer.Name = "number" + i.ToString();
@@ -150,6 +216,7 @@ namespace Bottle._8._1
                     numberGamer.TextWrapping = TextWrapping.NoWrap;
                     numberGamer.FontFamily = new FontFamily("Comic Sans MS");
 
+
                     Border b = new Border();
                     Border b2 = new Border();
                     b.BorderThickness = b2.BorderThickness = new Thickness(3);
@@ -157,11 +224,13 @@ namespace Bottle._8._1
                     b.BorderBrush = b2.BorderBrush = new SolidColorBrush(colorLine);
                     b.Child = numberGamer;
                     b.Height = b.Width = b2.Height = b2.Width = GridNumberGamer.ActualHeight;
-                    b.Margin = b2.Margin = new Thickness(0, 0, 0, -200);
+
+                    if (GridNumberGamer.ActualHeight > GridNumberGamer.ColumnDefinitions[1].ActualWidth)
+                    {
+                        b.Margin = b2.Margin = new Thickness(0, 0, -GridNumberGamer.ActualHeight + GridNumberGamer.ColumnDefinitions[1].ActualWidth, 0);
+                    }
                     b2.Background = new SolidColorBrush(Colors.Black);
                     b2.Opacity = 0.4;
-
-                    //var radius = LayoutRoot.RowDefinitions[1].ActualHeight / 2;
                     var radius = LayoutRoot.ActualHeight / 2 * 84 / 100;
 
                     var y0 = LayoutRoot.ActualHeight / 2 * 84 / 100;
@@ -171,11 +240,28 @@ namespace Bottle._8._1
                     b.RenderTransform = b2.RenderTransform = matrixTransform;
                     matrixTransform.Matrix = new Matrix(1, 0, 0, 1, х1, у1);
 
-
-                    LayoutRoot.Children.Add(b2);
-                    LayoutRoot.Children.Add(b);
-
+                    b2.SetValue(Grid.ColumnProperty, 1);
+                    b.SetValue(Grid.ColumnProperty, 1);
+                    GridNumberGamer.Children.Add(b2);
+                    GridNumberGamer.Children.Add(b);
+                    backButton.Height = GridNumberGamer.ActualHeight;
                 }
+
+                BottleImage = new Image();
+                BottleImage.Name = "bottleImage";
+                BottleImage.Source = new BitmapImage(new Uri(bottleRepository.GetBottle(numberBottle).Path, UriKind.RelativeOrAbsolute));
+                BottleImage.RenderTransformOrigin = new Point(0.5, 0.5);
+                RotateTransform rotateBottle = new RotateTransform();
+                rotateBottle.Angle = 10;
+                BottleImage.RenderTransform = rotateBottle;
+                BottleImage.SetValue(Grid.RowProperty, 0);
+                BottleImage.SetValue(Grid.RowSpanProperty, 2);
+                BottleImage.Tapped += bottleImage_Start;
+                BottleImage.PointerPressed += bottleImage_PointerPressed;
+                BottleImage.Height = GridBottle.ActualHeight;
+                BottleImage.HorizontalAlignment = HorizontalAlignment.Center;
+                BottleImage.VerticalAlignment = VerticalAlignment.Center;
+                LayoutRoot.Children.Add(BottleImage);
             }
             catch (Exception ex)
             {
@@ -183,16 +269,17 @@ namespace Bottle._8._1
             }
         }
 
+
         private void LayoutRoot_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             foreach (var item in LayoutRoot.Children)
             {
-                if (item.GetType() == typeof(Line) || item.GetType() == typeof(Border))
+                if (item.GetType() == typeof(Line) || item.GetType() == typeof(Image))
                 {
                     item.Visibility = Visibility.Collapsed;
-                   // LayoutRoot.Children.Remove(item);
                 }
             }
+            GridNumberGamer.Children.Clear();
             LayoutRoot.UpdateLayout();
             DivideGrid(Convert.ToInt32(AppSettings.Values["countGamers"]));
         }
@@ -211,5 +298,12 @@ namespace Bottle._8._1
                 rotate(degrees);
             }
         }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Frame.CanGoBack)
+                Frame.GoBack();
+        }
+
     }
 }

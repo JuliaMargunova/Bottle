@@ -204,5 +204,14 @@ namespace Bottle._8._1
             img.ImageSource = new BitmapImage(new Uri(background.Path, UriKind.RelativeOrAbsolute));
             SettingsGrid.Background = img;
         }
+
+        private void RateReminder_TryReminderCompleted(object sender, AppPromo.RateReminderResult e)
+        {
+            if (e.Runs == RateReminder.RunsBeforeReminder && !e.RatingShown)
+            {
+                RateReminder.RunsBeforeReminder *= 2;
+                RateReminder.ResetCounters();
+            }
+        }
     }
 }

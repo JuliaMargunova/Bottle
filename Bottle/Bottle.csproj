@@ -95,7 +95,9 @@
     <Compile Include="Game.xaml.cs">
       <DependentUpon>Game.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\Theme.cs" />
+    <Compile Include="Helpers\BaseSingleByteEncoding.cs" />
+    <Compile Include="Helpers\Windows1251.cs" />
+    <Compile Include="Helpers\Windows1251Encoding.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -123,6 +125,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Audio\butilka.mp3" />
+    <Content Include="b_300.png" />
+    <Content Include="Desires\beDesire.txt" />
+    <Content Include="Desires\deDesire.txt" />
+    <Content Include="Desires\enDesire.txt" />
+    <Content Include="Desires\esDesire.txt" />
+    <Content Include="Desires\frDesire.txt" />
+    <Content Include="Desires\itDesire.txt" />
+    <Content Include="Desires\ptDesire.txt" />
+    <Content Include="Desires\ruDesire.txt" />
+    <Content Include="Desires\ukDesire.txt" />
+    <Content Include="Images\bottle\1.png" />
+    <Content Include="Images\bottle\10.png" />
+    <Content Include="Images\bottle\11.png" />
+    <Content Include="Images\bottle\2.png" />
+    <Content Include="Images\bottle\3.png" />
+    <Content Include="Images\bottle\4.png" />
+    <Content Include="Images\bottle\5.png" />
+    <Content Include="Images\bottle\6.png" />
+    <Content Include="Images\bottle\7.png" />
+    <Content Include="Images\bottle\9.png" />
     <Content Include="Langs\AppResLib.dll.0401.mui" />
     <Content Include="Langs\AppResLib.dll.0402.mui" />
     <Content Include="Langs\AppResLib.dll.0403.mui" />
@@ -173,6 +195,7 @@
     <Content Include="Langs\AppResLib.dll.0816.mui" />
     <Content Include="Langs\AppResLib.dll.081A.mui" />
     <Content Include="Langs\AppResLib.dll.0c0a.mui" />
+    <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
@@ -206,20 +229,8 @@
     <Content Include="Images\background\kover.jpg" />
     <Content Include="Images\background\serzewp.jpg" />
     <Content Include="Images\background\travawp.jpg" />
-    <Content Include="Images\bottle\bottle.png" />
-    <Content Include="Images\bottle\bottle1.png" />
-    <Content Include="Images\bottle\finlandia.png" />
-    <Content Include="Images\bottle\martin.png" />
-    <Content Include="Images\bottle\medel.png" />
-    <Content Include="Images\bottle\vallos.png" />
-    <Content Include="Images\bottle\zvezda.png" />
-    <Content Include="Images\frames\1.png" />
-    <Content Include="Images\frames\2.png" />
-    <Content Include="Images\frames\3.png" />
-    <Content Include="Images\frames\ramka.png" />
     <Content Include="Images\increase.png" />
     <Content Include="Images\reduction.png" />
-    <Content Include="Images\bottle\vallo.png" />
     <Content Include="Langs\AppResLib.dll" />
   </ItemGroup>
   <ItemGroup>
@@ -247,7 +258,20 @@
       <Name>Bottle.Repository</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="AppPromo.WP8, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AppPromo.1.0.0.9\lib\wp8\AppPromo.WP8.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Coding4Fun.Toolkit, Version=2.0.8.0, Culture=neutral, PublicKeyToken=c5fd7b72b1a17ce4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Coding4Fun.Toolkit.Controls.2.1.6\lib\windowsphone8\Coding4Fun.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Coding4Fun.Toolkit.Controls, Version=2.1.6.0, Culture=neutral, PublicKeyToken=c5fd7b72b1a17ce4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Coding4Fun.Toolkit.Controls.2.1.6\lib\windowsphone8\Coding4Fun.Toolkit.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

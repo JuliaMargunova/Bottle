@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8EB7AAD9-6D65-4B4E-AC86-37F57D335FD5}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bottle</RootNamespace>
+    <AssemblyName>Bottle7</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>be-BY%3bfr-FR%3bde-DE%3bit-IT%3bpt-BR%3bpt-PT%3bru-RU%3bes-ES%3buk-UA</SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Bottle7.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Bottle7.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE7</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Coding4Fun.Toolkit.Controls">
+      <HintPath>..\packages\Coding4Fun.Toolkit.Controls.2.0.7\lib\wp71\Coding4Fun.Toolkit.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="mscorlib.extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Bottle.Entities\Background.cs">
+      <Link>Entities\Background.cs</Link>
+    </Compile>
+    <Compile Include="..\Bottle.Entities\BottleInfo.cs">
+      <Link>Entities\BottleInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Bottle.Repository\BackgroundRepository.cs">
+      <Link>Repositories\BackgroundRepository.cs</Link>
+    </Compile>
+    <Compile Include="..\Bottle.Repository\BottleRepository.cs">
+      <Link>Repositories\BottleRepository.cs</Link>
+    </Compile>
+    <Compile Include="..\Bottle\Game.xaml.cs">
+      <Link>Game.xaml.cs</Link>
+    </Compile>
+    <Compile Include="..\Bottle\Helpers\BaseSingleByteEncoding.cs">
+      <Link>Helpers\BaseSingleByteEncoding.cs</Link>
+    </Compile>
+    <Compile Include="..\Bottle\Helpers\Windows1251.cs">
+      <Link>Helpers\Windows1251.cs</Link>
+    </Compile>
+    <Compile Include="..\Bottle\Helpers\Windows1251Encoding.cs">
+      <Link>Helpers\Windows1251Encoding.cs</Link>
+    </Compile>
+    <Compile Include="..\Bottle\LocalizedStrings.cs">
+      <Link>LocalizedStrings.cs</Link>
+    </Compile>
+    <Compile Include="..\Bottle\MainPage.xaml.cs">
+      <Link>MainPage.xaml.cs</Link>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\AppResources.Designer.cs">
+      <DependentUpon>AppResources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0401.mui">
+      <Link>Langs\AppResLib.dll.0401.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0402.mui">
+      <Link>Langs\AppResLib.dll.0402.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0403.mui">
+      <Link>Langs\AppResLib.dll.0403.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0404.mui">
+      <Link>Langs\AppResLib.dll.0404.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0405.mui">
+      <Link>Langs\AppResLib.dll.0405.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0406.mui">
+      <Link>Langs\AppResLib.dll.0406.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0407.mui">
+      <Link>Langs\AppResLib.dll.0407.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0408.mui">
+      <Link>Langs\AppResLib.dll.0408.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0409.mui">
+      <Link>Langs\AppResLib.dll.0409.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.040B.mui">
+      <Link>Langs\AppResLib.dll.040B.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.040c.mui">
+      <Link>Langs\AppResLib.dll.040c.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.040D.mui">
+      <Link>Langs\AppResLib.dll.040D.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.040E.mui">
+      <Link>Langs\AppResLib.dll.040E.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0410.mui">
+      <Link>Langs\AppResLib.dll.0410.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0411.mui">
+      <Link>Langs\AppResLib.dll.0411.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0412.mui">
+      <Link>Langs\AppResLib.dll.0412.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0413.mui">
+      <Link>Langs\AppResLib.dll.0413.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0414.mui">
+      <Link>Langs\AppResLib.dll.0414.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0415.mui">
+      <Link>Langs\AppResLib.dll.0415.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0416.mui">
+      <Link>Langs\AppResLib.dll.0416.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0418.mui">
+      <Link>Langs\AppResLib.dll.0418.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0419.mui">
+      <Link>Langs\AppResLib.dll.0419.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.041A.mui">
+      <Link>Langs\AppResLib.dll.041A.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.041B.mui">
+      <Link>Langs\AppResLib.dll.041B.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.041C.mui">
+      <Link>Langs\AppResLib.dll.041C.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.041D.mui">
+      <Link>Langs\AppResLib.dll.041D.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.041E.mui">
+      <Link>Langs\AppResLib.dll.041E.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.041F.mui">
+      <Link>Langs\AppResLib.dll.041F.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0421.mui">
+      <Link>Langs\AppResLib.dll.0421.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0422.mui">
+      <Link>Langs\AppResLib.dll.0422.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0423.mui">
+      <Link>Langs\AppResLib.dll.0423.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0424.mui">
+      <Link>Langs\AppResLib.dll.0424.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0425.mui">
+      <Link>Langs\AppResLib.dll.0425.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0426.mui">
+      <Link>Langs\AppResLib.dll.0426.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0427.mui">
+      <Link>Langs\AppResLib.dll.0427.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0429.mui">
+      <Link>Langs\AppResLib.dll.0429.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.042A.mui">
+      <Link>Langs\AppResLib.dll.042A.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.042C.mui">
+      <Link>Langs\AppResLib.dll.042C.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.042F.mui">
+      <Link>Langs\AppResLib.dll.042F.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0439.mui">
+      <Link>Langs\AppResLib.dll.0439.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.043e.mui">
+      <Link>Langs\AppResLib.dll.043e.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.043F.mui">
+      <Link>Langs\AppResLib.dll.043F.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0443.mui">
+      <Link>Langs\AppResLib.dll.0443.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0464.mui">
+      <Link>Langs\AppResLib.dll.0464.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0804.mui">
+      <Link>Langs\AppResLib.dll.0804.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0809.mui">
+      <Link>Langs\AppResLib.dll.0809.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.080A.mui">
+      <Link>Langs\AppResLib.dll.080A.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0816.mui">
+      <Link>Langs\AppResLib.dll.0816.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.081A.mui">
+      <Link>Langs\AppResLib.dll.081A.mui</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll.0c0a.mui">
+      <Link>Langs\AppResLib.dll.0c0a.mui</Link>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Bottle\Audio\butilka.mp3">
+      <Link>Audio\butilka.mp3</Link>
+    </Content>
+    <Content Include="..\Bottle\Desires\beDesire.txt">
+      <Link>Desires\beDesire.txt</Link>
+    </Content>
+    <Content Include="..\Bottle\Desires\deDesire.txt">
+      <Link>Desires\deDesire.txt</Link>
+    </Content>
+    <Content Include="..\Bottle\Desires\enDesire.txt">
+      <Link>Desires\enDesire.txt</Link>
+    </Content>
+    <Content Include="..\Bottle\Desires\esDesire.txt">
+      <Link>Desires\esDesire.txt</Link>
+    </Content>
+    <Content Include="..\Bottle\Desires\frDesire.txt">
+      <Link>Desires\frDesire.txt</Link>
+    </Content>
+    <Content Include="..\Bottle\Desires\itDesire.txt">
+      <Link>Desires\itDesire.txt</Link>
+    </Content>
+    <Content Include="..\Bottle\Desires\ptDesire.txt">
+      <Link>Desires\ptDesire.txt</Link>
+    </Content>
+    <Content Include="..\Bottle\Desires\ruDesire.txt">
+      <Link>Desires\ruDesire.txt</Link>
+    </Content>
+    <Content Include="..\Bottle\Desires\ukDesire.txt">
+      <Link>Desires\ukDesire.txt</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\background\big1.jpg">
+      <Link>Images\background\big1.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\background\big2.jpg">
+      <Link>Images\background\big2.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\background\big4.jpg">
+      <Link>Images\background\big4.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\background\derevowp.jpg">
+      <Link>Images\background\derevowp.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\background\kirpichwp.jpg">
+      <Link>Images\background\kirpichwp.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\background\kover.jpg">
+      <Link>Images\background\kover.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\background\serzewp.jpg">
+      <Link>Images\background\serzewp.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\background\travawp.jpg">
+      <Link>Images\background\travawp.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\1.png">
+      <Link>Images\bottle\1.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\10.png">
+      <Link>Images\bottle\10.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\11.png">
+      <Link>Images\bottle\11.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\2.png">
+      <Link>Images\bottle\2.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\3.png">
+      <Link>Images\bottle\3.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\4.png">
+      <Link>Images\bottle\4.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\5.png">
+      <Link>Images\bottle\5.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\6.png">
+      <Link>Images\bottle\6.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\7.png">
+      <Link>Images\bottle\7.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\9.png">
+      <Link>Images\bottle\9.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\increase.png">
+      <Link>Images\increase.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\increase3.png">
+      <Link>Images\increase3.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\reduction.png">
+      <Link>Images\reduction.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\reduction3.png">
+      <Link>Images\reduction3.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Langs\AppResLib.dll">
+      <Link>Langs\AppResLib.dll</Link>
+    </Content>
+    <Content Include="b_173.png" />
+    <Content Include="b_62.png" />
+    <Content Include="SplashScreenImage.jpg" />
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AppResources.be-BY.resx" />
+    <EmbeddedResource Include="Resources\AppResources.de-DE.resx" />
+    <EmbeddedResource Include="Resources\AppResources.es-ES.resx" />
+    <EmbeddedResource Include="Resources\AppResources.fr-FR.resx" />
+    <EmbeddedResource Include="Resources\AppResources.it-IT.resx" />
+    <EmbeddedResource Include="Resources\AppResources.pt-BR.resx" />
+    <EmbeddedResource Include="Resources\AppResources.pt-PT.resx" />
+    <EmbeddedResource Include="Resources\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AppResources.ru-RU.resx" />
+    <EmbeddedResource Include="Resources\AppResources.uk-UA.resx" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Page Include="..\Bottle\Game.xaml">
+      <Link>Game.xaml</Link>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Bottle\MainPage.xaml">
+      <Link>MainPage.xaml</Link>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>

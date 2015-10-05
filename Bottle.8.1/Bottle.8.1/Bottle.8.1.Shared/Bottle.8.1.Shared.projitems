@@ -22,6 +22,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Audio\butilka.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)Desires\beDesire.txt" />
+    <Content Include="$(MSBuildThisFileDirectory)Desires\deDesire.txt" />
+    <Content Include="$(MSBuildThisFileDirectory)Desires\enDesire.txt" />
+    <Content Include="$(MSBuildThisFileDirectory)Desires\esDesire.txt" />
+    <Content Include="$(MSBuildThisFileDirectory)Desires\frDesire.txt" />
+    <Content Include="$(MSBuildThisFileDirectory)Desires\itDesire.txt" />
+    <Content Include="$(MSBuildThisFileDirectory)Desires\ptDesire.txt" />
+    <Content Include="$(MSBuildThisFileDirectory)Desires\ukDesire.txt" />
+    <Content Include="$(MSBuildThisFileDirectory)Desires\ruDesire.txt" />
     <Content Include="$(MSBuildThisFileDirectory)Images\background\big1.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Images\background\big2.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Images\background\big4.jpg" />
@@ -30,14 +39,16 @@
     <Content Include="$(MSBuildThisFileDirectory)Images\background\kover.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Images\background\serzewp.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Images\background\travawp.jpg" />
-    <Content Include="$(MSBuildThisFileDirectory)Images\bottle\bottle.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Images\bottle\bottle1.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Images\bottle\finlandia.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Images\bottle\martin.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Images\bottle\medel.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Images\bottle\vallo.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Images\bottle\vallos.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Images\bottle\zvezda.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Images\bottle\1.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Images\bottle\10.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Images\bottle\11.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Images\bottle\2.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Images\bottle\3.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Images\bottle\4.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Images\bottle\5.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Images\bottle\6.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Images\bottle\7.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Images\bottle\9.png" />
     <Content Include="$(MSBuildThisFileDirectory)Images\frames\1.png" />
     <Content Include="$(MSBuildThisFileDirectory)Images\frames\2.png" />
     <Content Include="$(MSBuildThisFileDirectory)Images\frames\3.png" />

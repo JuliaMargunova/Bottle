@@ -34,7 +34,7 @@ namespace Bottle
             InitializeComponent();
             bottleRepository = new BottleRepository();
             backgroundRepository = new BackgroundRepository();
-            SetStartValue();                     
+            SetStartValue();
         }
 
         public void SetStartValue()
@@ -52,19 +52,19 @@ namespace Bottle
 
             if (AppSettings.Contains("numberBottle"))
             {
-                NumberBottle = (int)AppSettings["numberBottle"];                  
+                NumberBottle = (int)AppSettings["numberBottle"];
             }
             else
             {
-                NumberBottle = 1;                
+                NumberBottle = 1;
             }
             bottle = bottleRepository.GetBottle(NumberBottle);
-            bottleImage.Source = new BitmapImage(new Uri(bottle.Path, UriKind.RelativeOrAbsolute)); 
+            bottleImage.Source = new BitmapImage(new Uri(bottle.Path, UriKind.RelativeOrAbsolute));
 
 
             if (AppSettings.Contains("numberBackground"))
             {
-                NumberBackground = (int)AppSettings["numberBackground"];                
+                NumberBackground = (int)AppSettings["numberBackground"];
             }
             else
             {
@@ -198,22 +198,15 @@ namespace Bottle
             SettingsGrid.Background = img;
         }
 
-
-
-        // Sample code for building a localized ApplicationBar
-        //private void BuildLocalizedApplicationBar()
-        //{
-        //    // Set the page's ApplicationBar to a new instance of ApplicationBar.
-        //    ApplicationBar = new ApplicationBar();
-
-        //    // Create a new button and set the text value to the localized string from AppResources.
-        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-        //    appBarButton.Text = AppResources.AppBarButtonText;
-        //    ApplicationBar.Buttons.Add(appBarButton);
-
-        //    // Create a new menu item with the localized string from AppResources.
-        //    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-        //    ApplicationBar.MenuItems.Add(appBarMenuItem);
-        //}
+        #if WINDOWS_PHONE8
+        private void RateReminder_TryReminderCompleted(object sender, AppPromo.RateReminderResult e)
+        {
+            if (e.Runs == RateReminder.RunsBeforeReminder && !e.RatingShown)
+            {
+                RateReminder.RunsBeforeReminder *= 2;
+                RateReminder.ResetCounters();
+            }
+        }
+        #endif
     }
 }

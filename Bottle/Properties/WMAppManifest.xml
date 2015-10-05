@@ -13,7 +13,7 @@
     <Language code="uk-UA" />
   </Languages>
   <App xmlns="" ProductID="{faf94b3c-5a9e-404e-9e9d-6621c8313dd9}" Title="@Langs/AppResLib.dll,-100" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Bottle author" Description="Sample description" Publisher="Bottle" PublisherID="{a5a0875a-d593-4c20-b296-52715d56b8a4}">
-    <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
+    <IconPath IsRelative="true" IsResource="false">b_300.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
@@ -27,9 +27,9 @@
     <Tokens>
       <PrimaryToken TokenID="BottleToken" TaskName="_default">
         <TemplateFlip>
-          <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</SmallImageURI>
+          <SmallImageURI IsRelative="true" IsResource="false">b_300.png</SmallImageURI>
           <Count>0</Count>
-          <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileMedium.png</BackgroundImageURI>
+          <BackgroundImageURI IsRelative="true" IsResource="false">b_300.png</BackgroundImageURI>
           <Title>
           </Title>
           <BackContent>

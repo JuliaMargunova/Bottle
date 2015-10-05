@@ -1,4 +1,4 @@
-﻿<Page
+﻿<Page xmlns:AppPromo="using:AppPromo" 
     x:Class="Bottle._8._1.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -28,7 +28,7 @@
                 <TextBlock x:Name="CurrentGamerLabel" x:Uid="Settings" FontFamily="Comic Sans MS" Canvas.ZIndex="1000" />
             </Viewbox>
         </Grid>
-
+        <AppPromo:RateReminder x:Name="RateReminder" RunsBeforeReminder="3" TryReminderCompleted="RateReminder_TryReminderCompleted"  />
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.7*"/>
@@ -51,10 +51,11 @@
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="game" x:Uid="Start" Grid.Column="1" Grid.Row="1" Padding="10" FontSize="30" FontFamily="Comic Sans MS" Style="{StaticResource PlayButton}" Click="game_Click"/>
+                <Button x:Name="game" Content="ИГРАТЬ" x:Uid="Start" Grid.Column="1" Grid.Row="1" Padding="35,10" FontSize="55" FontFamily="Comic Sans MS" Style="{StaticResource PlayButton}" Click="game_Click"/>
+               
             </Grid>
             <Grid Grid.ColumnSpan="4">
                 <Grid.RowDefinitions>
@@ -69,12 +70,13 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="1" x:Uid="CountGamer" FontFamily="Comic Sans MS" FontSize="30" VerticalAlignment="Center" TextAlignment="Left"></TextBlock>
+                <TextBlock Grid.Row="1" x:Uid="CountGamer" FontFamily="Comic Sans MS" FontSize="55" VerticalAlignment="Center" TextAlignment="Left"></TextBlock>
 
                 <Image x:Name="ImgIncrease" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" Source="/Images/increase.png" Tapped="IncreaseGamers_Tap" />
                 <Border Grid.Row="1" Grid.Column="2" BorderThickness="5" CornerRadius="20" Background="Black" Opacity="0.5">
                 </Border>
-                <Border Grid.Row="1" Grid.Column="2" BorderBrush="#FF67BA06" BorderThickness="5" CornerRadius="20">
+                <!--<Border Grid.Row="1" Grid.Column="2" FF2443E5 BorderBrush="#FF67BA06" BorderThickness="5" CornerRadius="20">-->
+                <Border Grid.Row="1" Grid.Column="2" BorderBrush="#FF2443E5" BorderThickness="5" CornerRadius="20">
                     <TextBlock Grid.Column="1" Grid.RowSpan="3" x:Name="TBCountGamers" FontSize="50" FontFamily="Comic Sans MS" Text="2" TextAlignment="Center" VerticalAlignment="Center"  />
                 </Border>
                 <Image x:Name="ImgReduction" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Source="/Images/reduction.png"  Tapped="ReductionGamers_Tap" />
@@ -92,14 +94,14 @@
                     <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.ColumnSpan="3" x:Uid="TypeBottle" FontSize="30" FontFamily="Comic Sans MS"  TextAlignment="Center"></TextBlock>
+                <TextBlock Grid.ColumnSpan="3" x:Uid="TypeBottle" FontSize="55" FontFamily="Comic Sans MS"  TextAlignment="Center"></TextBlock>
                 <Image Grid.Column="2" Grid.Row="2" x:Name="IncreaseBottle" Source="/Images/increase.png"  HorizontalAlignment="Right" Tapped="IncreaseBottle_Tap" />
                 <Image Grid.Column="0" Grid.Row="2" x:Name="ReductionBottle" Source="/Images/reduction.png"  HorizontalAlignment="Left" Tapped="ReductionBottle_Tap" />
                 <Border Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" BorderThickness="5" CornerRadius="20">
                     <Grid Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" Background="Black" Opacity="0.5">
                     </Grid>
                 </Border>
-                <Border Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" BorderBrush="#FF67BA06" BorderThickness="5" CornerRadius="20">
+                <Border Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" BorderBrush="#FF2443E5" BorderThickness="5" CornerRadius="20">
                     <Image x:Name="bottleImage" Margin="0,0,0,3"  RenderTransformOrigin="0.5,0.5" Source="/Images/bottle/martin.png" >
                         <Image.RenderTransform>
                             <RotateTransform Angle="15"/>
@@ -120,14 +122,14 @@
                     <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.ColumnSpan="3" x:Uid="TypeBackground" FontSize="30" FontFamily="Comic Sans MS"  TextAlignment="Center"></TextBlock>
+                <TextBlock Grid.ColumnSpan="3" x:Uid="TypeBackground" FontSize="55" FontFamily="Comic Sans MS"  TextAlignment="Center"></TextBlock>
                 <Image Grid.Column="2" Grid.Row="2" x:Name="IncreaseBackground" Source="/Images/increase.png"  HorizontalAlignment="Right" Tapped="IncreaseBackground_Tap" />
                 <Image Grid.Column="0" Grid.Row="2" x:Name="ReductionBackgground" Source="/Images/reduction.png"  HorizontalAlignment="Left" Tapped="ReductionBackgground_Tap" />
                 <Border Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" BorderThickness="5" CornerRadius="20">
                     <Grid Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" Background="Black" Opacity="0.5">
                     </Grid>
                 </Border>
-                <Border Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" BorderBrush="#FF67BA06" BorderThickness="5" CornerRadius="20">
+                <Border Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" BorderBrush="#FF2443E5" BorderThickness="5" CornerRadius="20">
                     <Image x:Name="BackgroundImage" Source="/Images/background/oboi.jpg"></Image>
                 </Border>
             </Grid>

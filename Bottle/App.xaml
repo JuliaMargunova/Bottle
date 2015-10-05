@@ -18,9 +18,14 @@
                 <Setter.Value>
                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,0" EndPoint="0,1">
                         <LinearGradientBrush.GradientStops>
-                            <GradientStop Offset="0.00" Color="#FF67BA06" />
+                            <!--<GradientStop Offset="0.00" Color="#FF67BA06" />
                             <GradientStop Offset="0.50" Color="#FF94D729" />
-                            <GradientStop Offset="1.00" Color="#FF67BA06" />
+                            <GradientStop Offset="1.00" Color="#FF67BA06" />-->
+                            <GradientStop Offset="0.00" Color="#FF0E2191" />
+                            <GradientStop Offset="0.10" Color="#FF0A14B7" />
+                            <GradientStop Offset="0.50" Color="#FF5C83FE" />
+                            <GradientStop Offset="0.80" Color="#FF0A14B7" />
+                            <GradientStop Offset="1.00" Color="#FF0E2191" />
                         </LinearGradientBrush.GradientStops>
                     </LinearGradientBrush>
                     <!--<ImageBrush ImageSource="/Images/guessback200str.png" />-->

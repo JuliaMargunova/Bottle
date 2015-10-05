@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>Bouteille</value>
+  </data>
   <data name="CountGamer.Text" xml:space="preserve">
     <value>Nombre de joueurs:</value>
   </data>
   <data name="CurrentGamer.Text" xml:space="preserve">
     <value>{0} JOUEUR TOURNE BOUTEILLE</value>
+  </data>
+  <data name="GamerDesire.Text" xml:space="preserve">
+    <value>{0} LE JOUEUR EFFECTUE UN DÉSIR DE</value>
   </data>
   <data name="Settings.Text" xml:space="preserve">
     <value>REGLAGES</value>

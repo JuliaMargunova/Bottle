@@ -1,0 +1,12 @@
+MainPackage=C:\Users\Юлия\Documents\GitHub\Bottle\Bottle.8.1\Bottle.8.1\Bottle.8.1.Windows\bin\Release\Bottle.8.1.Windows_1.1.0.0_AnyCPU.appx
+SymbolPackage=C:\Users\Юлия\Documents\GitHub\Bottle\Bottle.8.1\Bottle.8.1\Bottle.8.1.Windows\AppPackages\Bottle.8.1.Windows_1.1.0.0_Test\Bottle.8.1.Windows_1.1.0.0_AnyCPU.appxsym
+ResourcePack=C:\Users\Юлия\Documents\GitHub\Bottle\Bottle.8.1\Bottle.8.1\Bottle.8.1.Windows\bin\Release\Bottle.8.1.Windows_1.1.0.0_language-be.appx
+ResourcePack=C:\Users\Юлия\Documents\GitHub\Bottle\Bottle.8.1\Bottle.8.1\Bottle.8.1.Windows\bin\Release\Bottle.8.1.Windows_1.1.0.0_language-de.appx
+ResourcePack=C:\Users\Юлия\Documents\GitHub\Bottle\Bottle.8.1\Bottle.8.1\Bottle.8.1.Windows\bin\Release\Bottle.8.1.Windows_1.1.0.0_language-es.appx
+ResourcePack=C:\Users\Юлия\Documents\GitHub\Bottle\Bottle.8.1\Bottle.8.1\Bottle.8.1.Windows\bin\Release\Bottle.8.1.Windows_1.1.0.0_language-fr.appx
+ResourcePack=C:\Users\Юлия\Documents\GitHub\Bottle\Bottle.8.1\Bottle.8.1\Bottle.8.1.Windows\bin\Release\Bottle.8.1.Windows_1.1.0.0_language-it.appx
+ResourcePack=C:\Users\Юлия\Documents\GitHub\Bottle\Bottle.8.1\Bottle.8.1\Bottle.8.1.Windows\bin\Release\Bottle.8.1.Windows_1.1.0.0_language-pt.appx
+ResourcePack=C:\Users\Юлия\Documents\GitHub\Bottle\Bottle.8.1\Bottle.8.1\Bottle.8.1.Windows\bin\Release\Bottle.8.1.Windows_1.1.0.0_language-ru.appx
+ResourcePack=C:\Users\Юлия\Documents\GitHub\Bottle\Bottle.8.1\Bottle.8.1\Bottle.8.1.Windows\bin\Release\Bottle.8.1.Windows_1.1.0.0_language-uk.appx
+ResourcePack=C:\Users\Юлия\Documents\GitHub\Bottle\Bottle.8.1\Bottle.8.1\Bottle.8.1.Windows\bin\Release\Bottle.8.1.Windows_1.1.0.0_scale-140.appx
+ResourcePack=C:\Users\Юлия\Documents\GitHub\Bottle\Bottle.8.1\Bottle.8.1\Bottle.8.1.Windows\bin\Release\Bottle.8.1.Windows_1.1.0.0_scale-180.appx

@@ -20,87 +20,41 @@
             </ImageBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0*"/>
-            <RowDefinition Height="8*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
-        
+
         <MediaElement x:Name="mediaElement" Source="/Audio/butilka.mp3" AutoPlay="False" MediaEnded="mediaElement_MediaEnded" />
         <!--TitlePanel contains the name of the application and page title-->
-        
+
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Canvas.ZIndex="100" Grid.Row="1">
+        <Grid x:Name="ContentPanel"  Grid.Row="0" Grid.RowSpan="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="5*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1.5*"/>
-                    <RowDefinition Height="*"/>                    
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition  Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Border  Grid.Row="0" Grid.Column="1" Background="Black" BorderThickness="5" CornerRadius="13" Opacity="0.6" BorderBrush="Black">
-                </Border>
-                    <Viewbox Grid.Row="0" Grid.Column="1" Stretch="Uniform" Margin="10,-5,10,-5"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                        <TextBlock x:Name="CurrentGamerLabel" Text="1 ИГРОК КРУТИТ БУТЫЛОЧКУ" Foreground="Black" FontFamily="Comic Sans MS" Canvas.ZIndex="1000" />
-                    </Viewbox>              
-            </Grid>
-           
-            <Canvas x:Name="canvas" Grid.Row="0" Grid.RowSpan="3"></Canvas>
-            <Grid x:Name="GridNumberGamer" Grid.Row="0" >
+            <Grid x:Name="GridNumberGamer" Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5*" />
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition  Width="5*"/>
                 </Grid.ColumnDefinitions>
             </Grid>
-
-            <Image x:Name="bottleImage" RenderTransformOrigin="0.5,0.5" Grid.Row="1" Canvas.ZIndex="1500" Grid.RowSpan="1" Source="/Images/bottle/bottle1.png" Tap="bottleImage_Start" MouseMove="bottleImage_MouseMove" >
-                <Image.RenderTransform>
-                    <RotateTransform Angle="10"/>
-                </Image.RenderTransform>
-            </Image>
-            <Grid Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.2*" />
-                    <ColumnDefinition Width="3*" />                    
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition  Width="*"/>
-                    <ColumnDefinition Width="0.2*" />
-                </Grid.ColumnDefinitions>
-                
-                <!--<Viewbox Grid.Row="1" Grid.Column="1" Stretch="Uniform" Margin="10,-5,10,-5"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <Border RenderTransformOrigin="0.2,1" Background="Black" BorderThickness="5" CornerRadius="13" Opacity="0.6" BorderBrush="Black">
-                        <Border.RenderTransform>
-                            <RotateTransform Angle="280">                                
-                            </RotateTransform>
-                        </Border.RenderTransform>
-                        <TextBlock x:Name="CurrentGamerLabel" Grid.Column="1" Grid.Row="1" Text="1 ИГРОК КРУТИТ БУТЫЛОЧКУ" FontFamily="Comic Sans MS" Canvas.ZIndex="1000">
-                        
-                    </TextBlock>
-                    </Border>
-                </Viewbox>-->                                        
-            </Grid>
-            <!--<Button RenderTransformOrigin="0.5,0"  Background="Orange">
-                    <Button.RenderTransform>
-                        <RotateTransform Angle="70"/>
-                    </Button.RenderTransform> Rotated 45°
-                </Button>-->
-
-            <!--<Line x:Name="aa" RenderTransformOrigin="0,0" Canvas.ZIndex="1" Grid.Row="1" Stroke="Red" StrokeThickness="2" X1="300" X2="600" Y1="50" Y2="400">
-                
-            </Line>-->
-            <!--<Ellipse Width="320" Height="320"  RenderTransformOrigin="0.5,1" Grid.RowSpan="3"/>-->
-
+            <Grid x:Name="GridBottle" Grid.Row="1" ></Grid>
+        </Grid>
+        <Grid x:Name="GridLabelCurrentGamer" Grid.Row="0" Canvas.ZIndex="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition  Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border  Grid.Row="0" Grid.Column="1" Background="Black" BorderThickness="5" CornerRadius="13" Opacity="0.6" BorderBrush="Black">
+            </Border>
+            <Viewbox x:Name="ViewboxCurrentGamer" Grid.Row="0" Grid.Column="1" Stretch="Uniform" Margin="10,-5,10,-5"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <TextBlock x:Name="CurrentGamerLabel" Text="1 ИГРОК КРУТИТ БУТЫЛОЧКУ" Foreground="Black" FontFamily="Comic Sans MS"  />
+            </Viewbox>
         </Grid>       
     </Grid>
+    
 </phone:PhoneApplicationPage>
