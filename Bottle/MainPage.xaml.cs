@@ -198,7 +198,6 @@ namespace Bottle
             SettingsGrid.Background = img;
         }
 
-        #if WINDOWS_PHONE8
         private void RateReminder_TryReminderCompleted(object sender, AppPromo.RateReminderResult e)
         {
             if (e.Runs == RateReminder.RunsBeforeReminder && !e.RatingShown)
@@ -207,6 +206,5 @@ namespace Bottle
                 RateReminder.ResetCounters();
             }
         }
-        #endif
     }
 }

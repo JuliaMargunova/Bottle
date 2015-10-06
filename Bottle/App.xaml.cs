@@ -7,6 +7,8 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Bottle.Resources;
+using System.Globalization;
+using System.Threading;
 
 namespace Bottle
 {
@@ -61,6 +63,17 @@ namespace Bottle
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+            var cultureInfo = new CultureInfo("be-BY");
+            //var cultureInfo = new CultureInfo("de-DE");
+            //var cultureInfo = new CultureInfo("en-US");
+            //var cultureInfo = new CultureInfo("es-ES");
+            //var cultureInfo = new CultureInfo("fr-FR");
+            //var cultureInfo = new CultureInfo("it-IT");
+            //var cultureInfo = new CultureInfo("pt-PT");
+            //var cultureInfo = new CultureInfo("ru-RU");
+            // var cultureInfo = new CultureInfo("uk-UA"); 
+            Thread.CurrentThread.CurrentCulture = cultureInfo;
+            Thread.CurrentThread.CurrentUICulture = cultureInfo;
         }
 
         // Code to execute when the application is activated (brought to foreground)

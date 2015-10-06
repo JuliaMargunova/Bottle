@@ -138,7 +138,7 @@
     <value>Número de jugadores:</value>
   </data>
   <data name="CurrentGamer" xml:space="preserve">
-    <value>{0} JUGADOR HACE GIRAR LAS BOTELLA</value>
+    <value>{0} JUGADOR GIRA LA BOTELLA</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>AJUSTES</value>

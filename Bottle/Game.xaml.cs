@@ -59,9 +59,9 @@ namespace Bottle
             ImageBrush img = new ImageBrush();
             img.ImageSource = new BitmapImage(new Uri(backgroundRepository.GetBackground(numberBackground).Path, UriKind.RelativeOrAbsolute));
             LayoutRoot.Background = img;
-
             colorLine = backgroundRepository.GetBackground(numberBackground).ColorLine;
             CurrentGamerLabel.Foreground = new SolidColorBrush(colorLine);
+            CurrentGamerLabel.Text = String.Format(AppResources.CurrentGamer, CurrentGamer);
             Desires = GetListDesires();
         }
 

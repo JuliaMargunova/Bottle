@@ -52,7 +52,7 @@
             <Border  Grid.Row="0" Grid.Column="1" Background="Black" BorderThickness="5" CornerRadius="13" Opacity="0.6" BorderBrush="Black">
             </Border>
             <Viewbox x:Name="ViewboxCurrentGamer" Grid.Row="0" Grid.Column="1" Stretch="Uniform" Margin="10,-5,10,-5"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <TextBlock x:Name="CurrentGamerLabel" Text="1 ИГРОК КРУТИТ БУТЫЛОЧКУ" Foreground="Black" FontFamily="Comic Sans MS"  />
+                <TextBlock x:Name="CurrentGamerLabel"  Foreground="Black" FontFamily="Comic Sans MS"  />
             </Viewbox>
         </Grid>       
     </Grid>
