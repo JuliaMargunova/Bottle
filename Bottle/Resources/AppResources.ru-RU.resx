@@ -153,6 +153,6 @@
     <value>Тип бутылочки:</value>
   </data>
   <data name="GamerDesireText" xml:space="preserve">
-    <value>{0} ИГРОК ВЫПОЛНЯЕТ ЖЕЛАНИЕ</value>
+    <value>{0} ИГРОК ИСПОЛНЯЕТ ЖЕЛАНИЕ</value>
   </data>
 </root>

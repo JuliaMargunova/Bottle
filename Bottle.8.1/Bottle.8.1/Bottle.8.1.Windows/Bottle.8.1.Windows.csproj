@@ -19,6 +19,7 @@
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
     <PackageCertificateThumbprint>98D5C5C9B552E34773E8842678CAE8F31FC4C208</PackageCertificateThumbprint>
+    <AppxBundle>Always</AppxBundle>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -168,6 +169,10 @@
   <ItemGroup>
     <Reference Include="AppPromo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\AppPromo.1.0.0.9\lib\netcore45\AppPromo.winmd</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Callisto, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Callisto.1.4.0\lib\netcore451\Callisto.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>

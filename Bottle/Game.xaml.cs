@@ -104,7 +104,8 @@ namespace Bottle
             tbBoby.FontFamily = new FontFamily("Comic Sans MS");
             tbBoby.Text = Desire;
             tbBoby.Foreground = new SolidColorBrush(colorLine);
-            tbBoby.FontSize = 30;
+            tbBoby.FontSize = GridNumberGamer.ActualHeight * 60 / 100;
+            tbBoby.TextAlignment = TextAlignment.Center;
             sp.Children.Add(vb);
             sp.Children.Add(tbBoby);
 
@@ -114,6 +115,7 @@ namespace Bottle
                 IsAppBarVisible = true,
                 HorizontalAlignment = HorizontalAlignment.Stretch,
                 VerticalAlignment = VerticalAlignment.Center,
+                Opacity = 0.7
             };
             messagePrompt.Completed += MessagePrompt_Completed;
             messagePrompt.Show();

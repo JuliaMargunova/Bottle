@@ -107,6 +107,75 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\Bottle\Images\background\big1.jpg">
+      <Link>Images\background\big1.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\background\big2.jpg">
+      <Link>Images\background\big2.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\background\big4.jpg">
+      <Link>Images\background\big4.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\background\derevowp.jpg">
+      <Link>Images\background\derevowp.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\background\f1.jpg">
+      <Link>Images\background\f1.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\background\f2.jpg">
+      <Link>Images\background\f2.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\background\f3.jpg">
+      <Link>Images\background\f3.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\background\f4.jpg">
+      <Link>Images\background\f4.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\background\kirpichwp.jpg">
+      <Link>Images\background\kirpichwp.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\background\kover.jpg">
+      <Link>Images\background\kover.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\background\serzewp.jpg">
+      <Link>Images\background\serzewp.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\background\travawp.jpg">
+      <Link>Images\background\travawp.jpg</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\1.png">
+      <Link>Images\bottle\1.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\10.png">
+      <Link>Images\bottle\10.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\11.png">
+      <Link>Images\bottle\11.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\14.png">
+      <Link>Images\bottle\14.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\16.png">
+      <Link>Images\bottle\16.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\3.png">
+      <Link>Images\bottle\3.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\4.png">
+      <Link>Images\bottle\4.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\5.png">
+      <Link>Images\bottle\5.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\6.png">
+      <Link>Images\bottle\6.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\7.png">
+      <Link>Images\bottle\7.png</Link>
+    </Content>
+    <Content Include="..\Bottle\Images\bottle\9.png">
+      <Link>Images\bottle\9.png</Link>
+    </Content>
     <Content Include="..\Bottle\Langs\AppResLib.dll.0401.mui">
       <Link>Langs\AppResLib.dll.0401.mui</Link>
     </Content>
@@ -292,71 +361,11 @@
     <Content Include="..\Bottle\Desires\ukDesire.txt">
       <Link>Desires\ukDesire.txt</Link>
     </Content>
-    <Content Include="..\Bottle\Images\background\big1.jpg">
-      <Link>Images\background\big1.jpg</Link>
-    </Content>
-    <Content Include="..\Bottle\Images\background\big2.jpg">
-      <Link>Images\background\big2.jpg</Link>
-    </Content>
-    <Content Include="..\Bottle\Images\background\big4.jpg">
-      <Link>Images\background\big4.jpg</Link>
-    </Content>
-    <Content Include="..\Bottle\Images\background\derevowp.jpg">
-      <Link>Images\background\derevowp.jpg</Link>
-    </Content>
-    <Content Include="..\Bottle\Images\background\kirpichwp.jpg">
-      <Link>Images\background\kirpichwp.jpg</Link>
-    </Content>
-    <Content Include="..\Bottle\Images\background\kover.jpg">
-      <Link>Images\background\kover.jpg</Link>
-    </Content>
-    <Content Include="..\Bottle\Images\background\serzewp.jpg">
-      <Link>Images\background\serzewp.jpg</Link>
-    </Content>
-    <Content Include="..\Bottle\Images\background\travawp.jpg">
-      <Link>Images\background\travawp.jpg</Link>
-    </Content>
-    <Content Include="..\Bottle\Images\bottle\1.png">
-      <Link>Images\bottle\1.png</Link>
-    </Content>
-    <Content Include="..\Bottle\Images\bottle\10.png">
-      <Link>Images\bottle\10.png</Link>
-    </Content>
-    <Content Include="..\Bottle\Images\bottle\11.png">
-      <Link>Images\bottle\11.png</Link>
-    </Content>
-    <Content Include="..\Bottle\Images\bottle\2.png">
-      <Link>Images\bottle\2.png</Link>
-    </Content>
-    <Content Include="..\Bottle\Images\bottle\3.png">
-      <Link>Images\bottle\3.png</Link>
-    </Content>
-    <Content Include="..\Bottle\Images\bottle\4.png">
-      <Link>Images\bottle\4.png</Link>
-    </Content>
-    <Content Include="..\Bottle\Images\bottle\5.png">
-      <Link>Images\bottle\5.png</Link>
-    </Content>
-    <Content Include="..\Bottle\Images\bottle\6.png">
-      <Link>Images\bottle\6.png</Link>
-    </Content>
-    <Content Include="..\Bottle\Images\bottle\7.png">
-      <Link>Images\bottle\7.png</Link>
-    </Content>
-    <Content Include="..\Bottle\Images\bottle\9.png">
-      <Link>Images\bottle\9.png</Link>
-    </Content>
     <Content Include="..\Bottle\Images\increase.png">
       <Link>Images\increase.png</Link>
     </Content>
-    <Content Include="..\Bottle\Images\increase3.png">
-      <Link>Images\increase3.png</Link>
-    </Content>
     <Content Include="..\Bottle\Images\reduction.png">
       <Link>Images\reduction.png</Link>
-    </Content>
-    <Content Include="..\Bottle\Images\reduction3.png">
-      <Link>Images\reduction3.png</Link>
     </Content>
     <Content Include="..\Bottle\Langs\AppResLib.dll">
       <Link>Langs\AppResLib.dll</Link>

@@ -127,7 +127,7 @@
     <value>{0} ИГРОК КРУТИТ БУТЫЛОЧКУ</value>
   </data>
   <data name="GamerDesire.Text" xml:space="preserve">
-    <value>{0} ИГРОК ВЫПОЛНЯЕТ ЖЕЛАНИЕ</value>
+    <value>{0} ИГРОК ИСПОЛНЯЕТ ЖЕЛАНИЕ</value>
   </data>
   <data name="Settings.Text" xml:space="preserve">
     <value>НАСТРОЙКИ</value>

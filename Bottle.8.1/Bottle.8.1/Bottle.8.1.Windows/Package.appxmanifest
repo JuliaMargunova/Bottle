@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="50776ValeryMargunov.55426236EE208" Publisher="CN=2E5898D9-6755-48BD-A1A3-6A40622ADD00" Version="1.1.0.0" />
+  <Identity Name="50776ValeryMargunov.55426236EE208" Publisher="CN=2E5898D9-6755-48BD-A1A3-6A40622ADD00" Version="1.1.0.2" />
   <Properties>
     <DisplayName>ms-resource:ApplicationName</DisplayName>
     <PublisherDisplayName>Valery Margunov</PublisherDisplayName>

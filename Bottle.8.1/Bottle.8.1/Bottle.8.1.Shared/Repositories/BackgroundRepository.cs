@@ -15,6 +15,9 @@ namespace Bottle._8._1.Repositories
             backgrounds = new List<Background> {
                 new Background{Path = "ms-appx:///Images/background/big2.jpg", ColorLine = Color.FromArgb(255,0,174,255)},
                 new Background{Path = "ms-appx:///Images/background/kover.jpg", ColorLine = Colors.Red },
+                new Background{Path = "ms-appx:///Images/background/1.jpg", ColorLine = Colors.Red },
+                new Background{Path = "ms-appx:///Images/background/2.jpg", ColorLine = Colors.Orange },
+                new Background{Path = "ms-appx:///Images/background/3.jpg", ColorLine = Colors.Orange },
                 new Background{Path = "ms-appx:///Images/background/serzewp.jpg", ColorLine = Colors.Yellow},
                 new Background{Path = "ms-appx:///Images/background/derevowp.jpg", ColorLine = Colors.Orange},
                 new Background{Path = "ms-appx:///Images/background/travawp.jpg", ColorLine = Colors.Red},

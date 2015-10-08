@@ -12,15 +12,15 @@ namespace Bottle._8._1.Repositories
         {
             bottles = new List<BottleInfo> {
                 new BottleInfo{Path = "ms-appx:///Images/bottle/1.png"},
-                new BottleInfo{Path = "ms-appx:///Images/bottle/2.png"},
                 new BottleInfo{Path = "ms-appx:///Images/bottle/3.png"},
                 new BottleInfo{Path = "ms-appx:///Images/bottle/4.png"},
-                new BottleInfo{Path = "ms-appx:///Images/bottle/5.png"},
                 new BottleInfo{Path = "ms-appx:///Images/bottle/6.png"},
                 new BottleInfo{Path = "ms-appx:///Images/bottle/7.png"},
-                new BottleInfo{Path = "ms-appx:///Images/bottle/9.png"},
                 new BottleInfo{Path = "ms-appx:///Images/bottle/10.png"},
-                new BottleInfo{Path = "ms-appx:///Images/bottle/11.png"}
+                new BottleInfo{Path = "ms-appx:///Images/bottle/11.png"},
+                new BottleInfo{Path = "ms-appx:///Images/bottle/12.png"},
+                new BottleInfo{Path = "ms-appx:///Images/bottle/13.png"},
+                new BottleInfo{Path = "ms-appx:///Images/bottle/16.png"}
             };
         }
 

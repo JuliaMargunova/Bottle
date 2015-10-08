@@ -35,9 +35,9 @@
             </Border>
             <Viewbox Grid.Row="0" Grid.Column="1" Stretch="Uniform" Margin="10,-5,10,-5"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <TextBlock x:Name="CurrentGamerLabel" Text="{Binding Path=LocalizedResources.Settings, Source={StaticResource LocalizedStrings}}" FontFamily="Comic Sans MS" Canvas.ZIndex="1000" />
-              </Viewbox>
+            </Viewbox>
         </Grid>
-             <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.7*"/>
                 <RowDefinition Height="*"/>
@@ -78,8 +78,9 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="1" Text="{Binding Path=LocalizedResources.CountGamer, Source={StaticResource LocalizedStrings}}" FontFamily="Comic Sans MS" FontSize="30" VerticalAlignment="Center" TextAlignment="Left"></TextBlock>
-
+                <Viewbox Grid.Row="1" Stretch="Uniform" HorizontalAlignment="Stretch">
+                    <TextBlock Text="{Binding Path=LocalizedResources.CountGamer, Source={StaticResource LocalizedStrings}}" FontFamily="Comic Sans MS" FontSize="30" VerticalAlignment="Center" TextAlignment="Left"></TextBlock>
+                </Viewbox>
                 <Image x:Name="ImgIncrease" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" Source="/Images/increase.png" Tap="IncreaseGamers_Tap" />
                 <Border Grid.Row="1" Grid.Column="2" BorderThickness="5" CornerRadius="20" Background="Black" Opacity="0.5">
                 </Border>
@@ -104,8 +105,10 @@
                     <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.ColumnSpan="3" Text="{Binding Path=LocalizedResources.TypeBottle, Source={StaticResource LocalizedStrings}}" FontSize="30" FontFamily="Comic Sans MS"  TextAlignment="Center"></TextBlock>
-                <Image Grid.Column="2" Grid.Row="2" x:Name="IncreaseBottle" Source="/Images/increase.png"  HorizontalAlignment="Right" Tap="IncreaseBottle_Tap" />
+                <Viewbox Grid.ColumnSpan="3" Stretch="Uniform" HorizontalAlignment="Stretch">
+                    <TextBlock  Text="{Binding Path=LocalizedResources.TypeBottle, Source={StaticResource LocalizedStrings}}" FontFamily="Comic Sans MS"  TextAlignment="Center"></TextBlock>
+                </Viewbox>
+                  <Image Grid.Column="2" Grid.Row="2" x:Name="IncreaseBottle" Source="/Images/increase.png"  HorizontalAlignment="Right" Tap="IncreaseBottle_Tap" />
                 <Image Grid.Column="0" Grid.Row="2" x:Name="ReductionBottle" Source="/Images/reduction.png"  HorizontalAlignment="Left" Tap="ReductionBottle_Tap" />
                 <Border Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" BorderThickness="5" CornerRadius="20">
                     <Grid Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" Background="Black" Opacity="0.5">
@@ -132,7 +135,9 @@
                     <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.ColumnSpan="3" Text="{Binding Path=LocalizedResources.TypeBackground, Source={StaticResource LocalizedStrings}}" FontSize="30" FontFamily="Comic Sans MS"  TextAlignment="Center"></TextBlock>
+                <Viewbox Grid.Column="0" Grid.ColumnSpan="3"   Stretch="Uniform" HorizontalAlignment="Stretch">
+                    <TextBlock Text="{Binding Path=LocalizedResources.TypeBackground, Source={StaticResource LocalizedStrings}}"  FontFamily="Comic Sans MS" HorizontalAlignment="Center"  TextAlignment="Center"></TextBlock>
+                </Viewbox>
                 <Image Grid.Column="2" Grid.Row="2" x:Name="IncreaseBackground" Source="/Images/increase.png"  HorizontalAlignment="Right" Tap="IncreaseBackground_Tap" />
                 <Image Grid.Column="0" Grid.Row="2" x:Name="ReductionBackgground" Source="/Images/reduction.png"  HorizontalAlignment="Left" Tap="ReductionBackgground_Tap" />
                 <Border Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" BorderThickness="5" CornerRadius="20">
@@ -144,6 +149,6 @@
                 </Border>
             </Grid>
         </Grid>
-       </Grid>
+    </Grid>
 
 </phone:PhoneApplicationPage>

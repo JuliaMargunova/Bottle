@@ -13,7 +13,6 @@ namespace Bottle.Repository
         {
             bottles = new List<BottleInfo> {
                 new BottleInfo{Path = "/Images/bottle/1.png"},
-                new BottleInfo{Path = "/Images/bottle/2.png"},
                 new BottleInfo{Path = "/Images/bottle/3.png"},
                 new BottleInfo{Path = "/Images/bottle/4.png"},
                 new BottleInfo{Path = "/Images/bottle/5.png"},
@@ -21,7 +20,9 @@ namespace Bottle.Repository
                 new BottleInfo{Path = "/Images/bottle/7.png"},
                 new BottleInfo{Path = "/Images/bottle/9.png"},
                 new BottleInfo{Path = "/Images/bottle/10.png"},
-                new BottleInfo{Path = "/Images/bottle/11.png"}
+                new BottleInfo{Path = "/Images/bottle/11.png"},
+                new BottleInfo{Path = "/Images/bottle/16.png"},
+                new BottleInfo{Path = "/Images/bottle/14.png"}
             };
         }
 

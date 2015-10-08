@@ -123,27 +123,24 @@ namespace Bottle._8._1
             MyStory.Completed += animationRotateBottle_Completed;
         }
 
-        private async void animationRotateBottle_Completed(object sender, object e)
+        private  void animationRotateBottle_Completed(object sender, object e)
         {
             mediaElement.Stop();
             SetDesire();
-
-            MessageDialog msg = new MessageDialog(Desire, string.Format(resourceLoader.GetString("GamerDesire/Text"), CurrentGamer));
-            msg.Commands.Add(new UICommand("Ok", new UICommandInvokedHandler(CommandHandlers)));
-            await msg.ShowAsync();
+            title.Text = string.Format(resourceLoader.GetString("GamerDesire/Text"), CurrentGamer);
+            body.Text = Desire;
+            body.Foreground = new SolidColorBrush(colorLine);
+            body.FontSize = GridNumberGamer.ActualHeight * 40 /100;
+            gridMessage.Visibility = Visibility.Visible;
         }
 
-        public void CommandHandlers(IUICommand commandLabel)
+    
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            var Actions = commandLabel.Label;
-            switch (Actions)
-            {
-                case "Ok":
-                    IsRotateStarted = false;
-                    CurrentGamerLabel.Text = string.Format(resourceLoader.GetString("CurrentGamer/Text"), CurrentGamer);
-                    GridLabelCurrentGamer.Visibility = Visibility.Visible;
-                    break;
-            }
+            IsRotateStarted = false;
+            CurrentGamerLabel.Text = string.Format(resourceLoader.GetString("CurrentGamer/Text"), CurrentGamer);
+            GridLabelCurrentGamer.Visibility = Visibility.Visible;
+            gridMessage.Visibility = Visibility.Collapsed;
         }
 
         private void SetDesire()
@@ -303,7 +300,6 @@ namespace Bottle._8._1
         {
             if (Frame.CanGoBack)
                 Frame.GoBack();
-        }
-
+        }        
     }
 }

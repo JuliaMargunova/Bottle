@@ -30,7 +30,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE8</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -40,7 +40,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>Bin\Release</OutputPath>
-    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE8</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -135,10 +135,15 @@
     <Content Include="Desires\ptDesire.txt" />
     <Content Include="Desires\ruDesire.txt" />
     <Content Include="Desires\ukDesire.txt" />
+    <Content Include="Images\background\f1.jpg" />
+    <Content Include="Images\background\f2.jpg" />
+    <Content Include="Images\background\f3.jpg" />
+    <Content Include="Images\background\f4.jpg" />
     <Content Include="Images\bottle\1.png" />
     <Content Include="Images\bottle\10.png" />
     <Content Include="Images\bottle\11.png" />
-    <Content Include="Images\bottle\2.png" />
+    <Content Include="Images\bottle\14.png" />
+    <Content Include="Images\bottle\16.png" />
     <Content Include="Images\bottle\3.png" />
     <Content Include="Images\bottle\4.png" />
     <Content Include="Images\bottle\5.png" />
