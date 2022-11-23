@@ -74,6 +74,7 @@ namespace Bottle
             // var cultureInfo = new CultureInfo("uk-UA"); 
             //Thread.CurrentThread.CurrentCulture = cultureInfo;
             //Thread.CurrentThread.CurrentUICulture = cultureInfo;
+            
         }
 
         // Code to execute when the application is activated (brought to foreground)
